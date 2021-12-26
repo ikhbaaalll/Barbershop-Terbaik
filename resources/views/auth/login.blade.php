@@ -1,6 +1,92 @@
 @extends('layouts.guest')
 
+<!-- CUSTOM PAGE BACKGROUND KHUSUS HALAMAN LOGIN -->
+@section('CustomBG') <div class="login-page-background"></div> @endsection
+
+<!-- HEADER NAVIGATION BAR -->
+@section('HeaderNavBar')
+    <div class="web-main-logo">
+        <a href="">Donjack <span>Barbershop</span></a>
+    </div>
+    <div class="header-menu">
+        
+        <a href="">About Us</a>
+        <span>  |  </span>
+        <a href="">Contact Us</a>
+        
+        <!-- JANGAN DIHAPUS DULU --
+        
+        <a href="">Home</a>
+        <span>  |  </span>
+        <a href="">Profile</a>
+        <span>  |  </span>
+        <a href="">About Us</a> 
+
+        -- JANGAN DIHAPUS DULU -->
+    </div>
+@endsection
+
+<!-- PAGE CONTENT -->
 @section('content')
+    <div class="login-container">
+        <div class="welcome">
+            <span>W e l c o m e !</span>
+            <h2>Let's find the right choice<br>for your hair.</h2>
+        </div>
+        <div class="login-area">
+            <div class="card form-card">
+
+                <h4>Log in to your account!</h4>
+
+                <form action="{{ route('login') }}" method="post">
+                    @csrf
+                    <div class="input-group">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" required value="{{ old('email') }}" autocomplete="off">
+                        <i class="icon email-icon"></i>
+                        @error('email')
+                            <i class="icon error-icon"></i>
+                            <div class="error-message">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+        
+                    <div class="input-group">
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" required>
+                        <i class="icon password-icon"></i>
+                        @error('password')
+                            <i class="icon error-icon"></i>
+                            <div class="error-message">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="input-group">
+                        <button type="submit" class="form-btn">Log in</button>
+                    </div>
+
+                </form>
+
+                <h5>Don't have an account? <span><a href="">Sign up!</a></span></h5>
+
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="card-body login-card-body">
+        @if (Route::has('password.request'))
+            <p class="mb-1">
+                <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+            </p>
+        @endif
+    </div> --}}
+@endsection
+
+
+
+{{-- OLD --}}
+{{-- @section('content')
     <div class="card-body login-card-body">
         <p class="login-box-msg">{{ __('Login') }}</p>
 
@@ -58,5 +144,5 @@
             </p>
         @endif
     </div>
-    <!-- /.login-card-body -->
-@endsection
+    
+@endsection --}}

@@ -1,0 +1,280 @@
+@font-face {font-family     : big; src: url(../fonts/Big_Shoulders_Display/static/BigShouldersDisplay-Regular.ttf);}
+@font-face {font-family     : bold-big; src: url(../fonts/Big_Shoulders_Display/static/BigShouldersDisplay-Black.ttf);}
+@font-face {font-family     : pop; src: url(../fonts/Poppins/Poppins-Regular.ttf);}
+
+*{
+    margin                  : 0px;
+    padding                 : 0px;
+    box-sizing              : border-box;
+    -webkit-box-sizing      : border-box;
+    font-family             : 'pop';
+}
+body
+{
+    background-color: #191919;
+}
+
+
+
+
+
+/* ROW & COLUMN */
+.row
+{
+    margin-bottom           : 20px;
+    display                 : flex;
+    justify-content         : space-between;
+}
+.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10
+{    
+    text-align              : center;
+}
+.col-1{width:10%;}.col-2{width:20%;}.col-3{width:30%;}.col-3{width:30%;}
+.col-4{width:40%;}.col-5{width:50%;}.col-6{width:60%;}.col-7{width:70%;}
+.col-8{width:80%;}.col-9{width:90%;}.col-10{width:100%;}
+
+/* TEXT & PARAGRAPAH */
+h1
+{
+    font-family   : 'big';
+    font-size     : 40px;
+}
+h2, h3, h4, h5, h6, p{ font-family : 'pop'; }
+h2    { font-size : 32px;}
+h3    { font-size : 24px;}
+h4, p { font-size : 20px;}
+h5    { font-size : 14px;}
+h6    { font-size :  8px;}
+
+/* --- PAGE BASED BACKGROUNDS --- */
+.login-page-background
+{
+    position                : absolute;
+    z-index                 : -1;
+    width                   : 100%;
+    height                  : 100%;
+    background-image        : url('../images/PageBG/LPBG3.jpg');
+    background-size         : cover;
+    background-repeat       : no-repeat;
+    background-position     : 0 -30px;
+    filter                  : grayscale(100%);
+}
+
+/* --- HEADER --- */
+.header
+{
+    width                   : 100%;
+    position                : absolute;
+    display                 : flex;
+    justify-content         : space-between;
+    align-items             : center;
+    top                     : 20px;
+    padding                 : 25px 75px;
+    z-index                 : 0;
+
+
+    /* border                  : solid 1px black; */
+}
+.header a
+{
+    text-decoration         : none;
+}
+.web-main-logo
+{
+    padding                 : 5px 10px;
+    text-align              : center;
+
+    /* border                  : solid 1px black; */
+}
+.web-main-logo a,
+.web-main-logo a span
+{
+    font-family             : 'bold-big';
+    text-transform          : uppercase;
+    font-size               : 36px;
+    color                   : #FADC00;
+}
+.web-main-logo a span
+{
+    color                   : white;
+}
+.header-menu
+{
+    padding                 : 5px 10px;
+    text-align              : center;
+    width                   : 22%;
+
+    /* border                  : solid 1px black; */
+}
+.header-menu span,
+.header-menu a
+{
+    font-weight             : 500;
+    font-size               : 18px;
+    color                   : #DDDDDD;
+}
+.header-menu a:hover
+{
+    color                   : #FFFFFF;
+}
+
+/* --- CONTENT --- */
+.container
+{
+    width                   : 100%;
+    position                : absolute;
+    top                     : 150px;
+    z-index                 : 0;
+
+    /* border                  : solid 2px white; */
+}
+
+/* --- LOGIN CONTENT --- */
+.login-container{
+    width                   : 100%;
+    display                 : flex;
+    justify-content         : space-between;
+
+
+    /* border                  : solid 2px red; */
+}
+.welcome
+{
+    width                   : 50%;
+    min-height              : 300px;
+    color                   : #FFFFFF;
+    padding                 : 100px;
+    
+    /* border                  : solid 1px black; */
+}
+.welcome span
+{
+    font-size               : 84px;
+    font-family             : 'bold-big';
+    word-spacing            : -10px;
+    color                   : #FADC00;
+
+}
+.login-area
+{
+    width                   : 50%;
+    min-height              : 300px;
+    display                 : flex;
+    align-items             : center;
+    justify-content         : space-around;
+    
+    /* border                  : solid 1px yellow; */
+}
+
+
+.form-card
+{
+    width                   : 400px;
+    background-color        : #000000BB;
+    padding                 : 30px;
+    color                   : #FFFFFF;
+    text-align              : center;
+    border-radius           : 10px;
+}
+.form-card h4{margin-bottom:30px;}
+.form-card a{text-decoration:none;color:#ffe019dc;}
+
+.input-group
+{
+    position                : relative;
+    margin-bottom           : 30px;
+    display                 : flex;
+    justify-content         : space-between;
+    align-items             : center;
+}
+.form-control
+{
+    width                   : 100%;
+    padding                 : 5px 30px;
+    font-size               : 15px;
+    border-radius           : 15px;
+    outline                 : none;
+    border                  : solid 2px #FFFFFF;
+
+}
+.form-control:hover,
+.form-control:focus
+{
+    border                  : solid 2px #888888;
+}
+.is-invalid,
+.is-invalid:hover,
+.is-invalid:focus
+{
+    border                  : solid 2px #FF3E3E;
+}
+.form-btn
+{
+    width                   : 100%;
+    padding                 : 5px 30px;
+    font-size               : 20px;
+    font-weight             : 700;
+    border-radius           : 15px;
+    border                  : none;
+    color                   : #000000;
+    background              : rgb(255,224,25);
+    background              : linear-gradient(180deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
+}
+.form-btn:hover
+{
+    color                   : #0F0F0F;
+    background              : linear-gradient(350deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
+}
+.error-message
+{
+    position                : absolute;
+    font-size               : 12px;
+    font-weight             : 400;
+    top                     : 110%;
+    color                   : #FF3E3E;
+    border-radius           : 5px;
+    padding                 : 1px 3px;
+}
+
+
+
+
+
+
+
+
+.icon
+{
+    position                : absolute;
+    top                     : 8px;
+    width                   : 20px;
+    height                  : 20px;
+    z-index                 : 1;
+    background-size         : cover;
+} 
+.email-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/arroba_1.png);
+}
+.password-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/padlock.png);
+}
+.error-icon{
+    right                   : 8px;
+    background-image        : url(../images/Icons/error.png);
+}
+
+/*  */
+:root {
+    --yellow1   : #FADC00;    
+    --yellow2   : #FFE019;
+    --yellow3   : #CD9105;
+    --grey000   : #6E6E6E;
+    --black01   : #191919;
+    --black02   : #0F0F0F;
+    --black03   : #000000;
+}
+/*  */
