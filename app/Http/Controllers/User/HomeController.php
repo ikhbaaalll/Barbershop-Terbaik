@@ -9,6 +9,24 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        return view('pages.user.index');
+        return view('pages.user.index', [
+            "title" => "Home"
+        ]);
     }
+
+    public function profile()
+    {
+        return view('pages.user.profile', [
+            "title" => "Profile"
+        ]);
+    }
+
+    
+    public function about()
+    {
+        return view('pages.user.about', [
+            "title" => "About"
+        ]);
+    }
+
 }

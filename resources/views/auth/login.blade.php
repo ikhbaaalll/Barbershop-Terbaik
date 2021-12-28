@@ -3,29 +3,6 @@
 <!-- CUSTOM PAGE BACKGROUND KHUSUS HALAMAN LOGIN -->
 @section('CustomBG') <div class="login-page-background"></div> @endsection
 
-<!-- HEADER NAVIGATION BAR -->
-@section('HeaderNavBar')
-    <div class="web-main-logo">
-        <a href="">Donjack <span>Barbershop</span></a>
-    </div>
-    <div class="header-menu">
-        
-        <a href="">About Us</a>
-        <span>  |  </span>
-        <a href="">Contact Us</a>
-        
-        <!-- JANGAN DIHAPUS DULU --
-        
-        <a href="">Home</a>
-        <span>  |  </span>
-        <a href="">Profile</a>
-        <span>  |  </span>
-        <a href="">About Us</a> 
-
-        -- JANGAN DIHAPUS DULU -->
-    </div>
-@endsection
-
 <!-- PAGE CONTENT -->
 @section('content')
     <div class="login-container">

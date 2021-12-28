@@ -2,19 +2,6 @@
 
 @section('CustomBG') <div class="register-page-background"></div> @endsection
 
-@section('HeaderNavBar')
-    <div class="web-main-logo">
-        <a href="">Donjack <span>Barbershop</span></a>
-    </div>
-    <div class="header-menu">
-        
-        <a href="">About Us</a>
-        <span>  |  </span>
-        <a href="">Contact Us</a>
-        
-    </div>
-@endsection
-
 @section('content')
 
     <div class="signup-area">

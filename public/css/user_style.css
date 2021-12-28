@@ -1,6 +1,8 @@
 @font-face {font-family     : big; src: url(../fonts/Big_Shoulders_Display/static/BigShouldersDisplay-Regular.ttf);}
 @font-face {font-family     : bold-big; src: url(../fonts/Big_Shoulders_Display/static/BigShouldersDisplay-Black.ttf);}
+
 @font-face {font-family     : pop; src: url(../fonts/Poppins/Poppins-Regular.ttf);}
+@font-face {font-family     : lite-pop; src: url(../fonts/Poppins/Poppins-ExtraLight.ttf);}
 
 *{
     margin                  : 0px;
@@ -71,23 +73,36 @@ h6    { font-size :  8px;}
 }
 
 /* --- HEADER --- */
-.header
+.header,
+.logged-in-header
 {
     width                   : 100%;
     position                : absolute;
     display                 : flex;
     justify-content         : space-between;
     align-items             : center;
+}
+.header
+{
     top                     : 20px;
     padding                 : 25px 75px;
-    z-index                 : 0;
 
-
-    /* border                  : solid 1px black; */
 }
-.header a
+.logged-in-header
+{
+    top                     : 0;
+    padding                 : 10px 75px;
+    border                  : solid 1px black;
+}
+.header a,
+.logged-in-header a
 {
     text-decoration         : none;
+}
+.logged-in-header h4{
+    color                   : #FFFFFF;
+    font-family             : 'lite-pop';
+    font-weight             : 400;
 }
 .web-main-logo
 {
@@ -112,9 +127,9 @@ h6    { font-size :  8px;}
 {
     padding                 : 5px 10px;
     text-align              : center;
-    width                   : 22%;
+    width                   : 25%;
 
-    /* border                  : solid 1px black; */
+    border                  : solid 1px black;
 }
 .header-menu span,
 .header-menu a
@@ -127,7 +142,25 @@ h6    { font-size :  8px;}
 {
     color                   : #FFFFFF;
 }
-
+.active-header-menu
+{
+    color                   : #FADC00 !important;
+}
+.profile-btn
+{
+    display                 : block;
+    position                : relative;
+    border                  : solid 1px black;
+}
+.logout
+{
+    position                : absolute;
+    top                     : 110%;
+    left                    : 32%;
+    width                   : 36%;
+    cursor                  : pointer;
+}
+.logout button{cursor: pointer;}
 /* --- CONTENT --- */
 .container
 {
@@ -243,6 +276,17 @@ h6    { font-size :  8px;}
     color                   : #0F0F0F;
     background              : linear-gradient(350deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
 }
+.logout-btn
+{
+    width                   : 100%;
+    padding                 : 5px 0 5px 20px;
+    font-size               : 15px;
+    font-weight             : 700;
+    border-radius           : 3px;
+    border                  : none;
+    color                   : #0F0F0F;
+    background              : #FADC00;
+}
 .error-message
 {
     position                : absolute;
@@ -299,6 +343,11 @@ h6    { font-size :  8px;}
 {
     right                   : 8px;
     background-image        : url(../images/Icons/error.png);
+}
+.logout-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/logout.png);
 }
 
 /*  */
