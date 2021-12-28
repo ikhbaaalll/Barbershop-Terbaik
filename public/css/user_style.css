@@ -47,7 +47,8 @@ h5    { font-size : 14px;}
 h6    { font-size :  8px;}
 
 /* --- PAGE BASED BACKGROUNDS --- */
-.login-page-background
+.login-page-background,
+.register-page-background
 {
     position                : absolute;
     z-index                 : -1;
@@ -56,8 +57,17 @@ h6    { font-size :  8px;}
     background-image        : url('../images/PageBG/LPBG3.jpg');
     background-size         : cover;
     background-repeat       : no-repeat;
-    background-position     : 0 -30px;
     filter                  : grayscale(100%);
+}
+.login-page-background
+{
+    background-image        : url('../images/PageBG/LPBG2.jpg');
+    /* background-position     : 0 -10px; */
+}
+.register-page-background
+{
+    background-image        : url('../images/PageBG/RPBG.jpg');
+    background-position     : 0 -60px;
 }
 
 /* --- HEADER --- */
@@ -155,17 +165,25 @@ h6    { font-size :  8px;}
     color                   : #FADC00;
 
 }
-.login-area
+.login-area, 
+.signup-area
 {
-    width                   : 50%;
-    min-height              : 300px;
     display                 : flex;
     align-items             : center;
     justify-content         : space-around;
     
-    /* border                  : solid 1px yellow; */
 }
+.login-area
+{
+    width                   : 50%;
 
+}
+.signup-area
+{
+    width                   : 100%;
+    margin-top              : -30px;
+
+}
 
 .form-card
 {
@@ -182,7 +200,7 @@ h6    { font-size :  8px;}
 .input-group
 {
     position                : relative;
-    margin-bottom           : 30px;
+    margin-bottom           : 20px;
     display                 : flex;
     justify-content         : space-between;
     align-items             : center;
@@ -230,7 +248,7 @@ h6    { font-size :  8px;}
     position                : absolute;
     font-size               : 12px;
     font-weight             : 400;
-    top                     : 110%;
+    top                     : 100%;
     color                   : #FF3E3E;
     border-radius           : 5px;
     padding                 : 1px 3px;
@@ -251,18 +269,34 @@ h6    { font-size :  8px;}
     height                  : 20px;
     z-index                 : 1;
     background-size         : cover;
+}
+.user-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/user.png);
 } 
-.email-icon
+.username-icon
 {
     left                    : 8px;
     background-image        : url(../images/Icons/arroba_1.png);
+}
+.email-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/email.png);
+}
+.phone-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/phone.png);
 }
 .password-icon
 {
     left                    : 8px;
     background-image        : url(../images/Icons/padlock.png);
 }
-.error-icon{
+.error-icon
+{
     right                   : 8px;
     background-image        : url(../images/Icons/error.png);
 }

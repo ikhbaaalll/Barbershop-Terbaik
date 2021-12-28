@@ -42,7 +42,7 @@
                     @csrf
                     <div class="input-group">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" required value="{{ old('email') }}" autocomplete="off">
-                        <i class="icon email-icon"></i>
+                        <i class="icon username-icon"></i>
                         @error('email')
                             <i class="icon error-icon"></i>
                             <div class="error-message">
@@ -68,7 +68,7 @@
 
                 </form>
 
-                <h5>Don't have an account? <span><a href="">Sign up!</a></span></h5>
+                <h5>Don't have an account? <span><a href="{{ route('register') }}">Sign up!</a></span></h5>
 
             </div>
         </div>
@@ -81,6 +81,7 @@
             </p>
         @endif
     </div> --}}
+
 @endsection
 
 
