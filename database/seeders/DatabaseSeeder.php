@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Barber;
+use App\Models\Capster;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -24,7 +25,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'user@user.com',
         ]);
 
-        Barber::factory()->for($owner)->create();
+        $barber = Barber::factory()->for($owner)->create();
+
+        Capster::factory()->for($barber)->count(rand(3, 6))->create();
 
         $this->call(BarberSeeder::class);
     }
