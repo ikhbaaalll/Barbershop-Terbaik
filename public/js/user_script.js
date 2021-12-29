@@ -29,6 +29,8 @@ function CardSelected(ActiveIndex)
     let Radio   = document.getElementsByClassName('slider_radio');
     let Cards   = document.getElementsByClassName('slider-item');
 
+    Cards[ActiveIndex].className    = "slider-item active-slider";
+
     if(ActiveIndex>0)
     {
         let left1   = ActiveIndex-1;
@@ -63,7 +65,5 @@ function CardSelected(ActiveIndex)
             Cards[right2].className         = "slider-item slider-item-right2";
         }
     }
-
-    Cards[ActiveIndex].className    = "slider-item active-slider";
     
 }
