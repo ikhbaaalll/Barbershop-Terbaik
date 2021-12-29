@@ -38,7 +38,8 @@
                     </label>
                 @endfor
 
-
+                <div id="nextBtn" class="recom-next" onclick="changeSlide(1)">></div>
+                <div id="prevBtn" class="recom-prev" onclick="changeSlide(-1)"><</div>
             </div>
 
             

@@ -244,15 +244,15 @@ h6    { font-size :  8px;}
 
 
 
-    border                  : solid 2px yellow;
-    min-height              : 400px;
+    /* border                  : solid 2px yellow; */
+    /* min-height              : 400px; */
 }
 .recom-area-header
 {
     padding                 : 10px 40px;
     color                   : #FFFFFF;
 
-    border                  : solid 2px green;
+    /* border                  : solid 2px green; */
 }
 .recom-area-header span
 {
@@ -261,31 +261,48 @@ h6    { font-size :  8px;}
 }
 .recom-area-content
 {
-    border                  : solid 2px blue;
+    -webkit-user-select     : none;
+    -moz-user-select        : none;
+    -ms-user-select         : none;
+    user-select             : none;
+
+    /* border                  : solid 2px blue; */
+}
+.slider_radio
+{
+    display                 : none;
 }
 .recom-prev,
 .recom-next
 {
-    position: absolute;
-    color: white;
-    width: 50px;
-    height: 50px;
-    font-size: 48px;
-    display: flex;
-    border-radius: 50%;
-    top: 50%;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--grey000);
-    cursor: pointer;
+    position                : absolute;
+    color                   : #FFFFFF;
+    width                   : 50px;
+    height                  : 50px;
+    font-size               : 46px;
+    display                 : flex;
+    border-radius           : 50%;
+    top                     : 195px;
+    align-items             : center;
+    background-color        : #888888;
+    cursor                  : pointer;
 }
 .recom-prev
 {
-    left: 30px;
+    left                    : 30px;
+    padding                 : 0 0 0 10px;
 }
 .recom-next
 {
-    right: 30px;
+    right                   : 30px;
+    padding                 : 0 0 0 14px;
+}
+.recom-prev:hover,
+.recom-next:hover
+{
+    background-color        : #FADC00;
+    color                   : #191919;
+    font-weight             : 700;
 }
 
 
@@ -296,7 +313,7 @@ h6    { font-size :  8px;}
     height                  : 440px;
     padding: 20px;
 
-    border                  : solid 2px aqua;
+    /* border                  : solid 2px aqua; */
 }
 
 .slider-item
@@ -306,7 +323,7 @@ h6    { font-size :  8px;}
     width                   : 24%;
     border-radius           : 20px;
     cursor                  : pointer;
-    /* transition              : 0.15s ease; */
+    transition              : 0.1s ease;
 
     /* border                  : solid 2px greenyellow; */
 }
@@ -365,6 +382,7 @@ h6    { font-size :  8px;}
     background              : rgb(255,224,25);
     background              : linear-gradient(180deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
     transition              : all 0.15s ease;
+    
 }
 .shop-detail:hover
 {
@@ -373,6 +391,14 @@ h6    { font-size :  8px;}
 
 
 
+/* HIDDEN SLIDER */
+.hidden-slide-left
+{
+    display                 : none;
+    z-index                 : -1;
+    transform               : scale(0.5);
+    left                    : 0%;
+}
 /* LEFT SLIDER 2 */
 .slider-item-left2
 {   
@@ -408,7 +434,7 @@ h6    { font-size :  8px;}
 .active-slider .shop-card .shop-image
 {
     filter                  : grayscale(5%);
-    box-shadow              : 0px 0px 145px 86px rgba(155, 136, 14, 0.9) inset;
+    box-shadow              : 0px 0px 145px 200px rgba(155, 136, 14, 0.9) inset;
 }
 .active-slider:hover .shop-desc
 {
@@ -445,9 +471,12 @@ h6    { font-size :  8px;}
     box-shadow              : 0px 0px 145px 86px rgba(0, 0, 0, 0.999) inset;
 }
 /* HIDDEN SLIDER */
-.hidden-slide
+.hidden-slide-right
 {
-    visibility              : hidden;
+    display                 : none;
+    z-index                 : -1;
+    transform               : scale(0.5);
+    left                    : 76%;
 }
 
 /* ---------------------------------------------------- */
@@ -603,11 +632,11 @@ h6    { font-size :  8px;}
 }
 .empty-star
 {
-    background-image: url(../images/Icons/star_e.png);
+    background-image        : url(../images/Icons/star_e.png);
 }
 .filled-star
 {
-    background-image: url(../images/Icons/star_f.png);
+    background-image        : url(../images/Icons/star_f.png);
 }
 /*  */
 :root {
