@@ -1,6 +1,8 @@
 @font-face {font-family     : big; src: url(../fonts/Big_Shoulders_Display/static/BigShouldersDisplay-Regular.ttf);}
 @font-face {font-family     : bold-big; src: url(../fonts/Big_Shoulders_Display/static/BigShouldersDisplay-Black.ttf);}
+
 @font-face {font-family     : pop; src: url(../fonts/Poppins/Poppins-Regular.ttf);}
+@font-face {font-family     : lite-pop; src: url(../fonts/Poppins/Poppins-ExtraLight.ttf);}
 
 *{
     margin                  : 0px;
@@ -47,7 +49,8 @@ h5    { font-size : 14px;}
 h6    { font-size :  8px;}
 
 /* --- PAGE BASED BACKGROUNDS --- */
-.login-page-background
+.login-page-background,
+.register-page-background
 {
     position                : absolute;
     z-index                 : -1;
@@ -56,28 +59,50 @@ h6    { font-size :  8px;}
     background-image        : url('../images/PageBG/LPBG3.jpg');
     background-size         : cover;
     background-repeat       : no-repeat;
-    background-position     : 0 -30px;
     filter                  : grayscale(100%);
+}
+.login-page-background
+{
+    background-image        : url('../images/PageBG/LPBG2.jpg');
+    /* background-position     : 0 -10px; */
+}
+.register-page-background
+{
+    background-image        : url('../images/PageBG/RPBG.jpg');
+    background-position     : 0 -60px;
 }
 
 /* --- HEADER --- */
-.header
+.header,
+.logged-in-header
 {
     width                   : 100%;
     position                : absolute;
     display                 : flex;
     justify-content         : space-between;
     align-items             : center;
+}
+.header
+{
     top                     : 20px;
     padding                 : 25px 75px;
-    z-index                 : 0;
 
-
-    /* border                  : solid 1px black; */
 }
-.header a
+.logged-in-header
+{
+    top                     : 0;
+    padding                 : 10px 75px;
+    border                  : solid 1px black;
+}
+.header a,
+.logged-in-header a
 {
     text-decoration         : none;
+}
+.logged-in-header h4{
+    color                   : #FFFFFF;
+    font-family             : 'lite-pop';
+    font-weight             : 400;
 }
 .web-main-logo
 {
@@ -102,9 +127,9 @@ h6    { font-size :  8px;}
 {
     padding                 : 5px 10px;
     text-align              : center;
-    width                   : 22%;
+    width                   : 25%;
 
-    /* border                  : solid 1px black; */
+    border                  : solid 1px black;
 }
 .header-menu span,
 .header-menu a
@@ -117,7 +142,25 @@ h6    { font-size :  8px;}
 {
     color                   : #FFFFFF;
 }
-
+.active-header-menu
+{
+    color                   : #FADC00 !important;
+}
+.profile-btn
+{
+    display                 : block;
+    position                : relative;
+    border                  : solid 1px black;
+}
+.logout
+{
+    position                : absolute;
+    top                     : 110%;
+    left                    : 32%;
+    width                   : 36%;
+    cursor                  : pointer;
+}
+.logout button{cursor: pointer;}
 /* --- CONTENT --- */
 .container
 {
@@ -155,17 +198,25 @@ h6    { font-size :  8px;}
     color                   : #FADC00;
 
 }
-.login-area
+.login-area, 
+.signup-area
 {
-    width                   : 50%;
-    min-height              : 300px;
     display                 : flex;
     align-items             : center;
     justify-content         : space-around;
     
-    /* border                  : solid 1px yellow; */
 }
+.login-area
+{
+    width                   : 50%;
 
+}
+.signup-area
+{
+    width                   : 100%;
+    margin-top              : -30px;
+
+}
 
 .form-card
 {
@@ -182,7 +233,7 @@ h6    { font-size :  8px;}
 .input-group
 {
     position                : relative;
-    margin-bottom           : 30px;
+    margin-bottom           : 20px;
     display                 : flex;
     justify-content         : space-between;
     align-items             : center;
@@ -225,12 +276,23 @@ h6    { font-size :  8px;}
     color                   : #0F0F0F;
     background              : linear-gradient(350deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
 }
+.logout-btn
+{
+    width                   : 100%;
+    padding                 : 5px 0 5px 20px;
+    font-size               : 15px;
+    font-weight             : 700;
+    border-radius           : 3px;
+    border                  : none;
+    color                   : #0F0F0F;
+    background              : #FADC00;
+}
 .error-message
 {
     position                : absolute;
     font-size               : 12px;
     font-weight             : 400;
-    top                     : 110%;
+    top                     : 100%;
     color                   : #FF3E3E;
     border-radius           : 5px;
     padding                 : 1px 3px;
@@ -251,20 +313,41 @@ h6    { font-size :  8px;}
     height                  : 20px;
     z-index                 : 1;
     background-size         : cover;
+}
+.user-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/user.png);
 } 
-.email-icon
+.username-icon
 {
     left                    : 8px;
     background-image        : url(../images/Icons/arroba_1.png);
+}
+.email-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/email.png);
+}
+.phone-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/phone.png);
 }
 .password-icon
 {
     left                    : 8px;
     background-image        : url(../images/Icons/padlock.png);
 }
-.error-icon{
+.error-icon
+{
     right                   : 8px;
     background-image        : url(../images/Icons/error.png);
+}
+.logout-icon
+{
+    left                    : 8px;
+    background-image        : url(../images/Icons/logout.png);
 }
 
 /*  */

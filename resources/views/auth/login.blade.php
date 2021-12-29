@@ -3,29 +3,6 @@
 <!-- CUSTOM PAGE BACKGROUND KHUSUS HALAMAN LOGIN -->
 @section('CustomBG') <div class="login-page-background"></div> @endsection
 
-<!-- HEADER NAVIGATION BAR -->
-@section('HeaderNavBar')
-    <div class="web-main-logo">
-        <a href="">Donjack <span>Barbershop</span></a>
-    </div>
-    <div class="header-menu">
-        
-        <a href="">About Us</a>
-        <span>  |  </span>
-        <a href="">Contact Us</a>
-        
-        <!-- JANGAN DIHAPUS DULU --
-        
-        <a href="">Home</a>
-        <span>  |  </span>
-        <a href="">Profile</a>
-        <span>  |  </span>
-        <a href="">About Us</a> 
-
-        -- JANGAN DIHAPUS DULU -->
-    </div>
-@endsection
-
 <!-- PAGE CONTENT -->
 @section('content')
     <div class="login-container">
@@ -42,7 +19,7 @@
                     @csrf
                     <div class="input-group">
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" required value="{{ old('email') }}" autocomplete="off">
-                        <i class="icon email-icon"></i>
+                        <i class="icon username-icon"></i>
                         @error('email')
                             <i class="icon error-icon"></i>
                             <div class="error-message">
@@ -68,7 +45,7 @@
 
                 </form>
 
-                <h5>Don't have an account? <span><a href="">Sign up!</a></span></h5>
+                <h5>Don't have an account? <span><a href="{{ route('register') }}">Sign up!</a></span></h5>
 
             </div>
         </div>
@@ -81,6 +58,7 @@
             </p>
         @endif
     </div> --}}
+
 @endsection
 
 
