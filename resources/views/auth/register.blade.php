@@ -69,6 +69,17 @@
                 </div>
 
                 <div class="input-group">
+                    <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="{{ __('Password Confirmation') }}" required>
+                    <i class="icon password-icon"></i>
+                    @error('password_confirmation')
+                        <i class="icon error-icon"></i>
+                        <div class="error-message">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="input-group">
                     <button type="submit" class="form-btn">Sign up</button>
                 </div>
 
