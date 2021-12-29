@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="{{ asset('media/icons/TempDonjack.png') }}" sizes="16x16">
 
     <!-- PAGE TITLE -->
-    <title>{{ config('app.name', 'Donjack Barbershop') }} </title>
+    <title>@yield('title')</title>
 
     <!-- LINK CSS LAMA DIPINDAH KE BAWAH -->
 
@@ -28,23 +28,23 @@
     @auth
         <div class="logged-in-header">
             <div class="header-menu">
-                <a @if(Route::is('user.home'))class="active-header-menu"@endif href="{{ route('user.home') }}">Home</a>
-                <span>  |  </span>
-                <a @if(Route::is('user.profile'))class="active-header-menu"@endif href="{{ route('user.profile') }}">Profile</a>
-                <span>  |  </span>
-                <a @if(Route::is('user.about'))class="active-header-menu"@endif href="{{ route('user.about') }}">About Us</a> 
+                <a @if (Route::is('user.home'))class="active-header-menu"@endif href="{{ route('user.home') }}">Home</a>
+                <span> | </span>
+                <a @if (Route::is('user.profile'))class="active-header-menu"@endif href="{{ route('user.profile') }}">Profile</a>
+                <span> | </span>
+                <a @if (Route::is('user.about'))class="active-header-menu"@endif href="{{ route('user.about') }}">About Us</a>
             </div>
             <div class="web-main-logo">
                 <a href="">Donjack <span>Barbershop</span></a>
             </div>
             <div class="header-menu">
-                <h4 class="profile-btn">@if(Route::is('user.home'))Welcome, @endif
+                <h4 class="profile-btn">@if (Route::is('user.home'))Welcome, @endif
                     <span>
-                        @<a class="user-name" id="Logout" onclick="showLogoutBtn()">{{ auth()->user()->name  }}</a>
+                        @<a class="user-name" id="Logout" onclick="showLogoutBtn()">{{ auth()->user()->name }}</a>
                     </span>
                     <div id="LogoutBtn" class="logout">
-                        <form action="{{route('logout')}}" method="POST"> 
-                            @csrf 
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
                             <div class="input-group">
                                 <button type="submit" class="logout-btn">Log out</button>
                                 <i class="icon logout-icon"></i>
@@ -61,12 +61,12 @@
             </div>
             <div class="header-menu">
                 <a href="">About Us</a>
-                <span>  |  </span>
+                <span> | </span>
                 <a href="">Contact Us</a>
             </div>
         </div>
     @endauth
-    
+
 
     <!-- PAGE CONTENT -->
     <div class="container">
@@ -74,7 +74,7 @@
     </div>
 
     <script src="{{ asset('js/user_script.js') }}"></script>
-    
+
     @yield('additional-script')
 </body>
 
