@@ -8,7 +8,6 @@
     <!-- WEBSITE ICON -->
     <link rel="icon" type="image/png" href="{{ asset('images/icons/TempDonjack.png') }}" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ asset('media/icons/TempDonjack.png') }}" sizes="16x16">
-    <meta name="application-name" content="LAPOR!">
 
     <!-- PAGE TITLE -->
     <title>{{ config('app.name', 'Donjack Barbershop') }} </title>
@@ -41,7 +40,7 @@
             <div class="header-menu">
                 <h4 class="profile-btn">@if(Route::is('user.home'))Welcome, @endif
                     <span>
-                        @<a id="Logout" onclick="showLogoutBtn()">{{ auth()->user()->name  }}</a>
+                        @<a class="user-name" id="Logout" onclick="showLogoutBtn()">{{ auth()->user()->name  }}</a>
                     </span>
                     <div id="LogoutBtn" class="logout">
                         <form action="{{route('logout')}}" method="POST"> 
@@ -75,11 +74,8 @@
     </div>
 
     <script src="{{ asset('js/user_script.js') }}"></script>
-    {{-- <script src="{{ asset('js/app.js') }}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ asset('js/adminlte.min.js') }}"></script> --}}
+    
+    @yield('additional-script')
 </body>
 
 </html>
