@@ -1,34 +1,41 @@
 @extends('layouts.guest')
 
+@section('title')
+    Home
+@endsection
+
 @section('content')
     <div class="recom-area">
         <div class="recom-area-header">
             <h2>Recommendations<span> for you :</span></h2>
         </div>
         <div class="recom-area-content">
-            @for($i=0; $i<7; $i++)
-                @if ($i == ceil((7-1)/2))
-                    <input type="radio" name="slider" id="slide_{{$i}}" value="{{$i}}" class="slider_radio" checked>
+            @foreach ($barbers as $barber)
+                @if ($loop->index == ceil(($barberCount - 1) / 2))
+                    <input type="radio" name="slider" id="slide_{{ $loop->index }}" value="{{ $loop->index }}"
+                        class="slider_radio" checked>
                 @else
-                    <input type="radio" name="slider" id="slide_{{$i}}" value="{{$i}}" class="slider_radio">
+                    <input type="radio" name="slider" id="slide_{{ $loop->index }}" value="{{ $loop->index }}"
+                        class="slider_radio">
                 @endif
-            @endfor
+            @endforeach
 
             <div class="slides-holder">
-                @for($i=0; $i<7; $i++)
-                    <label for="slide_{{$i}}" class="slider-item" onclick="CardSelected({{$i}})">
+                @foreach ($barbers as $barber)
+                    <label for="slide_{{ $loop->index }}" class="slider-item"
+                        onclick="CardSelected({{ $loop->index }})">
                         <div class="card shop-card">
-                            <div class="shop-image" style="background-image: url({{ asset('images/PageBG/LPBG'.$i.'.jpg') }})"></div>
+                            <div class="shop-image" style="background-image: url({{ $barber->photo }})"></div>
                             {{-- <img class="shop-image" src="{{ asset('images/PageBG/LPBG.jpg') }}" alt=""> --}}
                             <div class="shop-desc">
-                                <h3 class="shop-name">{{ $i }}The Dandies</h3>
-                                <h4 class="shop-address">Gatot Subroto, No. 7</h4>
+                                <h3 class="shop-name">{{ $barber->name }}</h3>
+                                <h4 class="shop-address">{{ $barber->address }}</h4>
                                 <div class="shop-rating">
-                                    @for ($j=0; $j<4; $j++)
+                                    @for ($j = 0; $j < 4; $j++)
                                         <div class="filled-star"></div>
                                     @endfor
 
-                                    @for ($j=0; $j<5-4; $j++)
+                                    @for ($j = 0; $j < 5 - 4; $j++)
                                         <div class="empty-star"></div>
                                     @endfor
                                 </div>
@@ -36,23 +43,18 @@
                             </div>
                         </div>
                     </label>
-                @endfor
+                @endforeach
 
-                <div id="nextBtn" class="recom-next" onclick="changeSlide(1)">></div>
-                <div id="prevBtn" class="recom-prev" onclick="changeSlide(-1)"><</div>
+                <div id="nextBtn" class="recom-next" onclick="changeSlide(1)">&gt;</div>
+                <div id="prevBtn" class="recom-prev" onclick="changeSlide(-1)">&lt;</div>
             </div>
-
-            
-            {{-- <div class="recom-prev">&lt;</div>
-            <div class="recom-next">&gt;</div> --}}
         </div>
-
     </div>
 @endsection
 
 @section('additional-script')
     <script>
-        
-        
+
+
     </script>
 @endsection
