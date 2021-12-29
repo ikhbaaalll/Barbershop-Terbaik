@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function __invoke()
+    public function index()
     {
         return view('pages.user.index', [
             "title" => "Home"
@@ -20,7 +20,6 @@ class HomeController extends Controller
             "title" => "Profile"
         ]);
     }
-
     
     public function about()
     {

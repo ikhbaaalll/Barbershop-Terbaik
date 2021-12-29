@@ -40,9 +40,9 @@
             <div class="header-menu">
                 <h4 class="profile-btn">@if(Route::is('user.home'))Welcome, @endif
                     <span>
-                        @<a href="" onclick="showLogoutBtn()">{{ auth()->user()->name  }}</a>
+                        @<a id="Logout" onclick="showLogoutBtn()">{{ auth()->user()->name  }}</a>
                     </span>
-                    <div class="logout">
+                    <div id="LogoutBtn" class="logout">
                         <form action="{{route('logout')}}" method="POST"> 
                             @csrf 
                             <div class="input-group">
@@ -73,11 +73,12 @@
         @yield('content')
     </div>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/user_script.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('js/adminlte.min.js') }}"></script> --}}
 </body>
 </html>
 

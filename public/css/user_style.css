@@ -72,7 +72,10 @@ h6    { font-size :  8px;}
     background-position     : 0 -60px;
 }
 
-/* --- HEADER --- */
+
+/* ---------------------------------------------------- */
+/* ---------------------- HEADER ---------------------- */
+/* ---------------------------------------------------- */
 .header,
 .logged-in-header
 {
@@ -92,7 +95,6 @@ h6    { font-size :  8px;}
 {
     top                     : 0;
     padding                 : 10px 75px;
-    border                  : solid 1px black;
 }
 .header a,
 .logged-in-header a
@@ -128,8 +130,6 @@ h6    { font-size :  8px;}
     padding                 : 5px 10px;
     text-align              : center;
     width                   : 25%;
-
-    border                  : solid 1px black;
 }
 .header-menu span,
 .header-menu a
@@ -150,18 +150,26 @@ h6    { font-size :  8px;}
 {
     display                 : block;
     position                : relative;
-    border                  : solid 1px black;
 }
 .logout
 {
+    display                 : none;
     position                : absolute;
     top                     : 110%;
     left                    : 32%;
     width                   : 36%;
     cursor                  : pointer;
 }
+.showLogout 
+{
+    display                 : block;
+}
 .logout button{cursor: pointer;}
-/* --- CONTENT --- */
+
+
+/* ---------------------------------------------------- */
+/* ------------------ MAIN CONTAINER ------------------ */
+/* ---------------------------------------------------- */
 .container
 {
     width                   : 100%;
@@ -172,7 +180,9 @@ h6    { font-size :  8px;}
     /* border                  : solid 2px white; */
 }
 
-/* --- LOGIN CONTENT --- */
+/* ---------------------------------------------------- */
+/* ---------------- LOGIN AND REGISTER ---------------- */
+/* ---------------------------------------------------- */
 .login-container{
     width                   : 100%;
     display                 : flex;
@@ -218,6 +228,88 @@ h6    { font-size :  8px;}
 
 }
 
+
+/* ---------------------------------------------------- */
+/* -------------------- HOME PAGE --------------------- */
+/* ---------------------------------------------------- */
+.recom-area
+{
+    width                   : 100%;
+    margin-top              : -60px;
+
+
+
+
+    border                  : solid 2px yellow;
+    min-height              : 400px;
+}
+.recom-area-header
+{
+    border                  : solid 2px green;
+    padding                 : 10px 40px;
+    color                   : #FFFFFF;
+}
+.recom-area-header span
+{
+    font-family: 'lite-pop';
+    font-weight: 400;
+}
+.recom-area-content
+{
+    border                  : solid 2px blue;
+    display                 : flex;
+    position                : relative;
+}
+.recom-prev,
+.recom-next
+{
+    position: absolute;
+    color: white;
+    width: 50px;
+    height: 50px;
+    font-size: 48px;
+    display: flex;
+    border-radius: 50%;
+    top: 50%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--grey000);
+    cursor: pointer;
+}
+.recom-prev
+{
+    left: 30px;
+}
+.recom-next
+{
+    right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------- */
+/* -------------------- FORM CARD --------------------- */
+/* ---------------------------------------------------- */
+.shop-card
+{
+    width                   : 300px;
+    min-height              : 400px;
+    background-color        : #000000BB;
+    padding                 : 30px;
+    color                   : #FFFFFF;
+    text-align              : center;
+    border-radius           : 10px;
+
+}
 .form-card
 {
     width                   : 400px;

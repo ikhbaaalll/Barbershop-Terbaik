@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => '
 });
 
 Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {
-    Route::get('home',      HomeController::class, 'index'  )->name('home');
-    Route::get('profile',   HomeController::class, 'profile')->name('profile');
-    Route::get('about',     HomeController::class, 'about'  )->name('about');
+    Route::get('home',      [HomeController::class, 'index'  ])->name('home');
+    Route::get('profile',   [HomeController::class, 'profile'])->name('profile');
+    Route::get('about',     [HomeController::class, 'about'  ])->name('about');
 });
