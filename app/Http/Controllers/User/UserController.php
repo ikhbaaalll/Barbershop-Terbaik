@@ -17,6 +17,10 @@ class UserController extends Controller
 
         return view('pages.user.index', compact('barbers', 'barberCount'));
     }
+    public function detail()
+    {
+        return view('pages.user.detail');
+    }
 
     public function profile()
     {

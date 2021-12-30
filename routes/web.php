@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => '
 
 Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {
     Route::get('home',      [UserController::class, 'index'])->name('home');
+    Route::get('detail',    [UserController::class, 'detail'])->name('detail');
     Route::get('profile',   [UserController::class, 'profile'])->name('profile');
     Route::get('about',     [UserController::class, 'about'])->name('about');
 });
