@@ -17,9 +17,11 @@ class UserController extends Controller
 
         return view('pages.user.index', compact('barbers', 'barberCount'));
     }
-    public function detail()
+    public function detail(Barber $barber)
     {
-        return view('pages.user.detail');
+        $barber->load(['services', 'facilities']);
+
+        return view('pages.user.detail', compact('barber'));
     }
 
     public function profile()
