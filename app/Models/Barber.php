@@ -14,7 +14,15 @@ class Barber extends Model
         'user_id',
         'name',
         'photo',
-        'address'
+        'address',
+        'open',
+        'close',
+        'price'
+    ];
+
+    protected $casts = [
+        'open' => 'datetime:H:i',
+        'close' => 'datetime:H:i'
     ];
 
     public function user()
@@ -25,5 +33,15 @@ class Barber extends Model
     public function capsters(): HasMany
     {
         return $this->hasMany(Capster::class);
+    }
+
+    public function services(): HasMany
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    public function facilities(): HasMany
+    {
+        return $this->hasMany(Facility::class);
     }
 }

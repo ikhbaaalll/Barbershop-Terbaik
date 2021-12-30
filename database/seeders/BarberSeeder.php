@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Barber;
 use App\Models\Capster;
+use App\Models\Facility;
+use App\Models\Service;
 use Illuminate\Database\Seeder;
 
 class BarberSeeder extends Seeder
@@ -17,6 +19,8 @@ class BarberSeeder extends Seeder
     {
         Barber::factory()->count(6)->create()->each(function ($barber) {
             Capster::factory()->count(rand(3, 6))->for($barber)->create();
+            Service::factory()->count(rand(3, 5))->for($barber)->create();
+            Facility::factory()->count(rand(3, 5))->for($barber)->create();
         });
     }
 }

@@ -19,6 +19,9 @@ class CreateBarbersTable extends Migration
             $table->string('name');
             $table->string('photo');
             $table->text('address');
+            $table->time('open');
+            $table->time('close');
+            $table->integer('price');
             $table->timestamps();
         });
     }

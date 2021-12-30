@@ -18,7 +18,10 @@ class BarberFactory extends Factory
             'user_id' => User::factory()->create(['role' => User::ROLE_OWNER]),
             'name' => $this->faker->company(),
             'photo' => asset('images/PageBG/LPBG' . rand(0, 6) . '.jpg'),
-            'address' => $this->faker->address()
+            'address' => $this->faker->address(),
+            'open' => $this->faker->time(),
+            'close' => $this->faker->time(),
+            'price' => abs(round((rand(10_000, 50_000) + 500), -3))
         ];
     }
 }
