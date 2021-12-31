@@ -17,20 +17,8 @@ body
     background-color: #191919;
 }
 
-/* ROW & COLUMN */
-.row
-{
-    margin-bottom           : 20px;
-    display                 : flex;
-    justify-content         : space-between;
-}
-.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10
-{    
-    text-align              : center;
-}
-.col-1{width:10%;}.col-2{width:20%;}.col-3{width:30%;}.col-3{width:30%;}
-.col-4{width:40%;}.col-5{width:50%;}.col-6{width:60%;}.col-7{width:70%;}
-.col-8{width:80%;}.col-9{width:90%;}.col-10{width:100%;}
+
+
 
 /* TEXT & PARAGRAPAH */
 h1
@@ -628,8 +616,6 @@ h6    { font-size :  8px;}
     text-shadow             : none;
 }
 
-
-
 .detail-info-area
 {
     width                   : 66%;
@@ -681,7 +667,6 @@ h6    { font-size :  8px;}
     margin-top              : 30px;
     display                 : flex;
     justify-content         : space-between;
-    /* border                  : solid 1px white; */
 }
 .capster-col
 {
@@ -712,6 +697,84 @@ h6    { font-size :  8px;}
     font-weight: 400;
 }
 
+/* ---------------------------------------------------- */
+/* ------------------- BOOKING PAGE ------------------- */
+/* ---------------------------------------------------- */
+.booking-area
+{
+    width                   : 100%;
+    margin-top              : -70px;
+}
+.booking-area-header
+{
+    padding                 : 10px 40px;
+    color                   : #FFFFFF;
+    display                 : flex;
+    justify-content         : space-between;
+}
+.booking-area-header span
+{
+    font-family             : 'lite-pop';
+    font-weight             : 400;
+}
+.booking-area-header .yellow
+{
+    font-family             : 'bold-pop';
+    color                   : #FADC00;
+}
+.booking-header-btn
+{
+    display                 : flex;
+    width                   : 18%;
+}
+.booking-area-content
+{
+    padding                 : 20px 40px;
+}
+.capster-radio
+{
+    display                 : none;
+}
+.capster-choice
+{
+    display                 : flex;
+    width                   : 49%;
+    padding                 : 10px;
+    align-items             : center;
+    border-radius           : 15px;
+    background              : linear-gradient(180deg, rgba(255,224,25,0.5) 0%, rgba(205,145,5,0.5) 100%);
+    cursor                  : pointer;
+}
+.capster-choice:hover
+{
+    background              : linear-gradient(350deg, rgba(255,224,25,0.5) 0%, rgba(205,145,5,0.5) 100%);
+}
+.selected-capster
+{
+    background              : linear-gradient(350deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
+}
+.selected-capster:hover
+{
+    background              : linear-gradient(180deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
+}
+.capster-choice-photo
+{
+    width                   : 50px;
+    height                  : 50px;
+    border-radius           : 50%;
+    margin-right            : 20px;
+}
+
+.capster-choice-info
+{
+    color                   : #FFFFFF;
+    font-family             : 'lite-pop';
+    text-align              : left;
+}
+.capster-choice-info h5
+{
+    font-weight             : 400;
+}
 /* ---------------------------------------------------- */
 /* ---------------------- CARDS ----------------------- */
 /* ---------------------------------------------------- */
@@ -746,7 +809,33 @@ h6    { font-size :  8px;}
 }
 .form-card h4{margin-bottom:30px;}
 .form-card a{text-decoration:none;color:#ffe019dc;}
+.input-group-row
+{
+    display                 : flex;
+    align-items             : center;
+    margin-bottom           : 20px;
+}
 
+.input-group-col
+{
+    position                : relative;
+    display                 : flex;
+    justify-content         : space-evenly;
+    flex-direction          : column;
+    align-items             : center;
+    padding                 : 0 15px;
+    min-height              : 360px;
+}
+.vertical-margin-20
+{
+    margin                  : 20px 0;
+    padding                 : 0 0 20px 70px;
+    border-left             : solid 5px #CD9105;
+}
+.smemew
+{
+    color                   : #FFFFFF;
+}
 .input-group
 {
     position                : relative;
@@ -765,6 +854,7 @@ h6    { font-size :  8px;}
     border                  : solid 2px #FFFFFF;
 
 }
+.no-padding{padding: 5px 10px !important;}
 .form-control:hover,
 .form-control:focus
 {
@@ -895,3 +985,28 @@ h6    { font-size :  8px;}
     --black03   : #000000;
 }
 /*  */
+
+/* ROW & COLUMN */
+.row
+{
+    margin-bottom           : 20px;
+    display                 : flex;
+    justify-content         : space-between;
+}
+.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-63
+{    
+    text-align              : center;
+}
+.col-1{width:10%;}.col-2{width:20%;}.col-3{width:30%;}.col-4{width:40%;}
+.col-5{width:50%;}.col-6{width:60%;}.col-7{width:70%;}
+.col-8{width:80%;}.col-9{width:90%;}.col-10{width:100%;}
+.col-63{width:63%;}
+
+.center
+{
+    justify-content         : center;
+}
+.right
+{
+    justify-content         : flex-end;
+}

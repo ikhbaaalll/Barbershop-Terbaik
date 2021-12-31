@@ -109,3 +109,14 @@ function CardSelected(ActiveIndex)
     }
     
 }
+
+function thisSelected(SelectedIndex)
+{
+    let capsters = document.getElementsByClassName('capster-choice');
+
+    for (let i=0; i<capsters.length; i++)
+    {
+        capsters[i].className    = "capster-choice";
+    }
+    capsters[SelectedIndex].className = "capster-choice selected-capster";
+}

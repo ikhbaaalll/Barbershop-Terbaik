@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 @section('title')
-    XXXXXX
+    Capster Detail
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
                         style="background-image: url('http://localhost:8000/images/PageBG/LPBG4.jpg')"></div>
                     <div class="booking-btn-area">
 
-                        <a href="" class="booking-link">
+                        <a href="{{ route('user.booking') }}" class="booking-link">
                             <h3>Book Your</h3>
                             <h4>Schedule Now</h4>
                             <div class="booking-btn-icon-bg"></div>
@@ -74,30 +74,47 @@
                     </div>
                 </div>
                 @php
-                    $counts = 7;
+                    $capsters = [
+                        ['M. Ikhbal', 24],
+                        ['Akbarona', 11],
+                        ['Aidil X', 18],
+                        ['Bastian', 78],
+                        ['Jakob CC', 9],
+                        ['Optimus P', 26],
+                        ['Jackal GE.', 22]
+                    ];
+                    $counts = intval(count($capsters));
+                    
+                    // Aku pake variabel ini, soalnya gatau kenapa, kalo langsung pake 
+                    // variabel counts/2 di atribut loop, loop nya malah error
+                    $loops  = $counts/2;
+
+                    $index  = 0;
                 @endphp
                 
-                @for ($i = 0; $i < 7 / 2; $i++)
+                @for ($i = 0; $i<$loops; $i++)
+                
                     <div class="capster-row">
-                        @if ($counts>1)
+                        @if ($counts > 1)
                             @for ($j=0; $j<2; $j++)
                                 <div class="capster-col">
                                     <img class="capster-photo" src="{{ asset('images/Capsters/C' . $counts . '.JPG') }}" alt="">
                                     <div class="capster-info">
-                                        <h3>Agent {{$i}}{{$i}}{{$counts }}</h3>
-                                        <h5>{{$counts}}{{$i}}{{$i}} tahun</h5>
+                                        <h3>{{ $capsters[$index][0] }}</h3>
+                                        <h5>{{ $capsters[$index][1] }} tahun</h5>
                                     </div>
                                 </div>
                                 @php
                                     $counts-=1;
+                                    $index+=1;
                                 @endphp
                             @endfor
                         @else
                             <div class="capster-col">
                                 <img class="capster-photo" src="{{ asset('images/Capsters/C' . $counts . '.JPG') }}" alt="">
                                 <div class="capster-info">
-                                    <h3>Agent {{$i}}{{$i}}{{$counts }}</h3>
-                                    <h5>{{$counts}}{{$i}}{{$i}} tahun</h5>
+                                    <h3>{{ $capsters[$index][0] }}</h3>
+                                    <h5>{{ $capsters[$index][1] }} tahun</h5>
                                 </div>
                             </div>
                         @endif

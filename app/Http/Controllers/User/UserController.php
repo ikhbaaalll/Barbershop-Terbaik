@@ -27,11 +27,14 @@ class UserController extends Controller
     {
         return view('pages.user.capster');
     }
+    public function booking()
+    {
+        return view('pages.user.booking');
+    }
     public function profile()
     {
         return view('pages.user.profile');
     }
-
     public function about()
     {
         return view('pages.user.about');

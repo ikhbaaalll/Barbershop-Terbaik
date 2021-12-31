@@ -32,7 +32,7 @@
                         style="background-image: url('http://localhost:8000/images/PageBG/LPBG4.jpg')"></div>
                     <div class="booking-btn-area">
 
-                        <a href="" class="booking-link">
+                        <a href="{{ route('user.booking') }}" class="booking-link">
                             <h3>Book Your</h3>
                             <h4>Schedule Now</h4>
                             <div class="booking-btn-icon-bg"></div>
