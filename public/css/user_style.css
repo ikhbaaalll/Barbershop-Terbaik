@@ -17,10 +17,6 @@ body
     background-color: #191919;
 }
 
-
-
-
-
 /* ROW & COLUMN */
 .row
 {
@@ -139,6 +135,18 @@ h6    { font-size :  8px;}
     font-size               : 18px;
     color                   : #DDDDDD;
 }
+.flex-header-menu
+{
+    display                 : flex;
+    justify-content         : space-between;
+    align-items             : center;
+    padding                 : 5px 0;
+}
+.header-menu img
+{
+    width                   : 40px;
+    border-radius           : 50%;
+}
 .header-menu a:hover
 {
     color                   : #FFFFFF;
@@ -155,21 +163,26 @@ h6    { font-size :  8px;}
 {
     display                 : block;
     position                : relative;
+    width                   : 250px;
+    text-align              : right;
 }
 .logout
 {
     display                 : none;
     position                : absolute;
     top                     : 110%;
-    left                    : 32%;
-    width                   : 36%;
+    right                   : 0;
+    width                   : 100px;
     cursor                  : pointer;
 }
 .showLogout 
 {
     display                 : block;
 }
-.logout button{cursor: pointer;}
+.logout button
+{
+    cursor                  : pointer;
+}
 
 
 /* ---------------------------------------------------- */
@@ -314,7 +327,7 @@ h6    { font-size :  8px;}
     width                   : 24%;
     border-radius           : 20px;
     cursor                  : pointer;
-    transition              : 0.1s ease;
+    transition              : 0.75s ease;
 
     /* border                  : solid 2px greenyellow; */
 }
@@ -555,9 +568,9 @@ h6    { font-size :  8px;}
     background-repeat       : no-repeat;
     background-position     : center;
     filter                  : grayscale(5%);
-    box-shadow              : 0px 0px 145px 200px rgba(155, 136, 14, 0.6) inset;
+    box-shadow              : 0px 0px 145px 200px rgba(155, 136, 14, 0.8) inset;
 }
-.recommend-btn-area
+.booking-btn-area
 {
     position                : absolute;
     bottom                  : 20px;
@@ -565,29 +578,28 @@ h6    { font-size :  8px;}
     min-height              : 30px;
     z-index                 : 1;
 }
-.recommend-btn,
-.recommend-link
+.booking-link
 {
     position                : relative;
     padding                 : 0 0 0 60px;
     height                  : 70px;
     color                   : #FFFFFF;
-}
-.recommend-btn
-{
-    border                  : none;
-    cursor                  : pointer;
-    background-color        : #00000000;
-}
-.recommend-link
-{
     display                 : block;
     text-decoration         : none;
-    width                   : 60%;
+    width                   : 47%;
     margin                  : auto;
 }
-.recommend-btn-icon-bg,
-.recommend-btn-icon
+.booking-link h3,
+.booking-link h4
+{
+    text-shadow             : 0px 0px 20px rgba(65, 65, 65, 0.9);
+}
+.booking-link h4
+{
+    font-size               : 16px;
+}
+.booking-btn-icon-bg,
+.booking-btn-icon
 {
     position                : absolute;
     top                     : 10px;
@@ -596,22 +608,28 @@ h6    { font-size :  8px;}
     height                  : 50px;
     border-radius           : 50%;
 }
-.recommend-btn-icon-bg
+.booking-btn-icon-bg
 {
     background              : rgb(255,224,25);
     background              : linear-gradient(180deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
 }
-.recommend-btn:hover .recommend-btn-icon-bg,
-.recommend-link:hover .recommend-btn-icon-bg
+.booking-btn-icon
+{
+    background-image        : url(../images/Icons/booking.png);
+    background-size         : cover;
+}
+.booking-link:hover .booking-btn-icon-bg
 {
     background              : linear-gradient(350deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
 }
-.recommend-btn-icon
+.booking-link:hover h3,
+.booking-link:hover h4
 {
-    background-image        : url(../images/Icons/like.png);
-    background-size         : cover;
-
+    text-shadow             : none;
 }
+
+
+
 .detail-info-area
 {
     width                   : 66%;
@@ -637,14 +655,12 @@ h6    { font-size :  8px;}
 .info-rating
 {
     display                 : flex;
-    width                   : 20%;
+    width                   : 23%;
     margin-top              : 10px;
     justify-content         : space-between;
 
     /* border                  : solid 2px peru; */
 }
-
-
 .detail-info-row h5
 {
     font-size               : 15px;
@@ -658,6 +674,44 @@ h6    { font-size :  8px;}
     word-spacing            : 5px;
 
 }
+
+.capster-row
+{
+    width                   : 100%;
+    margin-top              : 30px;
+    display                 : flex;
+    justify-content         : space-between;
+    /* border                  : solid 1px white; */
+}
+.capster-col
+{
+    width                   : 48%;
+    display                 : flex;
+    /* border                  : solid 1px khaki; */
+}
+.capster-photo
+{
+    width                   : 100px;
+    border-radius           : 50%;
+    margin-right            : 20px;
+}
+.capster-info
+{
+    display                 : flex;
+    flex-direction          : column;
+    justify-content         : center;
+    /* border                  : solid 1px khaki; */
+}
+.capster-info h3
+{
+    font-weight: 400;
+}
+.capster-info h5
+{
+    font-family: 'lite-pop';
+    font-weight: 400;
+}
+
 /* ---------------------------------------------------- */
 /* ---------------------- CARDS ----------------------- */
 /* ---------------------------------------------------- */
@@ -812,21 +866,24 @@ h6    { font-size :  8px;}
     left                    : 8px;
     background-image        : url(../images/Icons/logout.png);
 }
-.filled-star,
-.empty-star
+.star-rating
 {
-    width: 25px;
-    height: 25px;
+    width                   : 25px;
+    height                  : 25px;
     background-size         : cover;
 }
-.empty-star
-{
-    background-image        : url(../images/Icons/star_e.png);
-}
-.filled-star
-{
-    background-image        : url(../images/Icons/star_f.png);
-}
+.empty-star     {background-image :url(../images/Icons/Stars/star_e.png);}
+.point-1-star   {background-image: url(../images/Icons/Stars/star_e1.png);}
+.point-2-star   {background-image: url(../images/Icons/Stars/star_e2.png);}
+.point-3-star   {background-image: url(../images/Icons/Stars/star_e3.png);}
+.point-4-star   {background-image: url(../images/Icons/Stars/star_e4.png);}
+.point-5-star   {background-image: url(../images/Icons/Stars/star_e5.png);}
+.point-6-star   {background-image: url(../images/Icons/Stars/star_e6.png);}
+.point-7-star   {background-image: url(../images/Icons/Stars/star_e7.png);}
+.point-8-star   {background-image: url(../images/Icons/Stars/star_e8.png);}
+.point-8-star   {background-image: url(../images/Icons/Stars/star_e9.png);}
+.full-star      {background-image: url(../images/Icons/Stars/star_f.png);}
+
 /*  */
 :root {
     --yellow1   : #FADC00;    

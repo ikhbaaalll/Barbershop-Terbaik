@@ -37,10 +37,10 @@
             <div class="web-main-logo">
                 <a href="">Donjack <span>Barbershop</span></a>
             </div>
-            <div class="header-menu">
+            <div class="header-menu flex-header-menu">
                 <h4 class="profile-btn">@if (Route::is('user.home'))Welcome, @endif
                     <span>
-                        @<a class="user-name" id="Logout" onclick="showLogoutBtn()">{{ auth()->user()->name }}</a>
+                        @<a class="user-name" id="Logout" onclick="showLogoutBtn()">{{ auth()->user()->username }}</a>
                     </span>
                     <div id="LogoutBtn" class="logout">
                         <form action="{{ route('logout') }}" method="POST">
@@ -52,6 +52,7 @@
                         </form>
                     </div>
                 </h4>
+                <img src="{{ asset( ( auth()->user()->profile_picture!=null ) ? auth()->user()->profile_picture : 'images/ProfilePictures/user.png') }}" alt="">
             </div>
         </div>
     @else

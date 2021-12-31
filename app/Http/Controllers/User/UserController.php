@@ -23,7 +23,10 @@ class UserController extends Controller
 
         return view('pages.user.detail', compact('barber'));
     }
-
+    public function capster()
+    {
+        return view('pages.user.capster');
+    }
     public function profile()
     {
         return view('pages.user.profile');
