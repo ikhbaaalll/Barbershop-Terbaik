@@ -1,37 +1,31 @@
-function showLogoutBtn(){
+function showLogoutBtn() {
     document.getElementById('LogoutBtn').classList.toggle('showLogout');
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     let LogoutBtn = document.getElementById('LogoutBtn');
     if (event.target != document.getElementById('Logout')) {
         LogoutBtn.classList.remove('showLogout');
     }
 }
 
-if (document.body.contains(document.getElementById("slide_0")))
-{
+if (document.body.contains(document.getElementById("slide_0"))) {
     let Radio = document.getElementsByClassName('slider_radio');
     let ActiveIndex = 0;
-    for(let i=0; i<Radio.length; i++)
-    {
-        if(Radio[i].checked)
-        {
+    for (let i = 0; i < Radio.length; i++) {
+        if (Radio[i].checked) {
             ActiveIndex = i;
         }
     }
-    
+
     CardSelected(ActiveIndex);
 }
 
-function changeSlide(value)
-{
+function changeSlide(value) {
     let Radio = document.getElementsByClassName('slider_radio');
     let ActiveIndex = 0;
-    for(let i=0; i<Radio.length; i++)
-    {
-        if(Radio[i].checked)
-        {
+    for (let i = 0; i < Radio.length; i++) {
+        if (Radio[i].checked) {
             ActiveIndex = i;
         }
     }
@@ -39,145 +33,131 @@ function changeSlide(value)
     ActiveIndex += value;
     Radio[ActiveIndex].checked = true;
     console.log(ActiveIndex);
-    
+
     CardSelected(ActiveIndex);
 }
 
-function CardSelected(ActiveIndex)
-{
-    
-    let Radio   = document.getElementsByClassName('slider_radio');
-    let Cards   = document.getElementsByClassName('slider-item');
+function CardSelected(ActiveIndex) {
 
-    Cards[ActiveIndex].className    = "slider-item active-slider";
+    let Radio = document.getElementsByClassName('slider_radio');
+    let Cards = document.getElementsByClassName('slider-item');
 
-    if(ActiveIndex==0)
-    {
+    Cards[ActiveIndex].className = "slider-item active-slider";
+
+    if (ActiveIndex == 0) {
         document.getElementById('prevBtn').style.display = 'none';
     }
-    else
-    {
+    else {
         document.getElementById('prevBtn').style.display = 'flex';
     }
-    if(ActiveIndex==Radio.length-1)
-    {
+    if (ActiveIndex == Radio.length - 1) {
         document.getElementById('nextBtn').style.display = 'none';
     }
-    else
-    {
+    else {
         document.getElementById('nextBtn').style.display = 'flex';
     }
-    if(ActiveIndex>0)
-    {
-        let left1   = ActiveIndex-1;
-        
-        Cards[left1].className          = "slider-item slider-item-left1";
+    if (ActiveIndex > 0) {
+        let left1 = ActiveIndex - 1;
 
-        if(ActiveIndex>1)
-        {
-            let left2 = ActiveIndex-2;
+        Cards[left1].className = "slider-item slider-item-left1";
 
-            for(let i=0; i<left2; i++)
-            {
+        if (ActiveIndex > 1) {
+            let left2 = ActiveIndex - 2;
+
+            for (let i = 0; i < left2; i++) {
                 Cards[i].className = "slider-item hidden-slide-left";
             }
-            
+
             Cards[left2].className = "slider-item slider-item-left2";
         }
     }
 
-    if(ActiveIndex < Radio.length-1)
-    {
-        let right1 = ActiveIndex+1;
-        
-        Cards[right1].className         = "slider-item slider-item-right1";
+    if (ActiveIndex < Radio.length - 1) {
+        let right1 = ActiveIndex + 1;
 
-        if(ActiveIndex < Radio.length-2)
-        {
-            let right2  = ActiveIndex+2;
+        Cards[right1].className = "slider-item slider-item-right1";
 
-            for(let i=right2+1; i<Radio.length; i++)
-            {
+        if (ActiveIndex < Radio.length - 2) {
+            let right2 = ActiveIndex + 2;
+
+            for (let i = right2 + 1; i < Radio.length; i++) {
                 Cards[i].className = "slider-item hidden-slide-right";
             }
 
-            Cards[right2].className         = "slider-item slider-item-right2";
+            Cards[right2].className = "slider-item slider-item-right2";
         }
     }
-    
+
 }
 
-function thisSelected(SelectedIndex)
-{
+function thisSelected(SelectedIndex) {
     let capsters = document.getElementsByClassName('capster-choice');
 
-    for (let i=0; i<capsters.length; i++)
-    {
-        capsters[i].className    = "capster-choice";
+    for (let i = 0; i < capsters.length; i++) {
+        capsters[i].className = "capster-choice";
     }
     capsters[SelectedIndex].className = "capster-choice selected-capster";
 }
 
-function showProfile(){
+function showProfile() {
     document.getElementById("activitySection").className = "profile-option";
-    document.getElementById("activityMenu").className    = "profile-menu-container";
-    document.getElementById("profileSection").className  = "profile-option selected-profile-option";
-    document.getElementById("profileMenu").className     = "profile-menu-container active-profile-menu";
+    document.getElementById("activityMenu").className = "profile-menu-container";
+    document.getElementById("profileSection").className = "profile-option selected-profile-option";
+    document.getElementById("profileMenu").className = "profile-menu-container active-profile-menu";
 }
 
-function showActivities(){
-    document.getElementById("profileSection").className  = "profile-option";
-    document.getElementById("profileMenu").className     = "profile-menu-container";
+function showActivities() {
+    document.getElementById("profileSection").className = "profile-option";
+    document.getElementById("profileMenu").className = "profile-menu-container";
     document.getElementById("activitySection").className = "profile-option selected-profile-option";
-    document.getElementById("activityMenu").className    = "profile-menu-container active-profile-menu";
+    document.getElementById("activityMenu").className = "profile-menu-container active-profile-menu";
 }
 
-function showCancelModal(){
+function showCancelModal() {
     document.getElementById('CancelModal').style.display = "flex";
 }
 
-function closeCancelModal(){
+function closeCancelModal() {
     document.getElementById('CancelModal').style.display = "none";
 }
-if (document.body.contains(document.getElementById("CancelModal"))){
-    window.onclick = function(event) {
+if (document.body.contains(document.getElementById("CancelModal"))) {
+    window.onclick = function (event) {
         if (event.target == document.getElementById('CancelModal')) {
             closeCancelModal();
         }
     }
 }
-function showExperience(scale)
-{
+function showExperience(scale) {
     let ExperienceScale = document.getElementById('experience');
-    switch(scale) {
+    switch (scale) {
         case 1:
-            ExperienceScale.innerText = 'Not surprising';
-            break;
-        case 2:
             ExperienceScale.innerText = 'This is terrible';
             break;
+        case 2:
+            ExperienceScale.innerText = 'This is bad';
+            break;
         case 3:
-            ExperienceScale.innerText = 'This is suck';
+            ExperienceScale.innerText = 'This is OK';
             break;
         case 4:
-            ExperienceScale.innerText = 'Not Bad';
+            ExperienceScale.innerText = 'This is good';
             break;
         case 5:
-            ExperienceScale.innerText = 'Fair enough';
+            ExperienceScale.innerText = 'This is amazing';
             break;
         default:
-            ExperienceScale.innerText = 'Fuck You';
+            ExperienceScale.innerText = '';
     }
 }
 
-function showReviewModal(){
+function showReviewModal() {
     document.getElementById('ReviewModal').style.display = "flex";
 }
-function closeReviewModal(){
+function closeReviewModal() {
     document.getElementById('ReviewModal').style.display = "none";
 }
-if (document.body.contains(document.getElementById("ReviewModal"))){
-    window.onclick = function(event) {
+if (document.body.contains(document.getElementById("ReviewModal"))) {
+    window.onclick = function (event) {
         if (event.target == document.getElementById('ReviewModal')) {
             closeReviewModal();
         }
