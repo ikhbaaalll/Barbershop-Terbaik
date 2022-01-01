@@ -14,14 +14,14 @@
             </div>
             <h3><span>Barbershop </span>detail</h3>
             <div class="detail-header-btn">
-                <a class="choose-capster-btn" href="{{ route('user.capster') }}">
+                <a class="choose-capster-btn" href="{{ route('user.capster', $barber) }}">
                     <h4>See Capster</h4><span>&gt;</span>
                     <!-- 
-                        Sementara kuubah dari 'CHOOSE' jadi 'SEE' 
-                        karena dari pembahasan terakhir
-                        pengguna gak memilih capster dari sini 
-                        (atau bisa aja ketika capster di klik, langsung menuju form, dan capster otomatis terpilih)
-                    -->
+                                Sementara kuubah dari 'CHOOSE' jadi 'SEE' 
+                                karena dari pembahasan terakhir
+                                pengguna gak memilih capster dari sini 
+                                (atau bisa aja ketika capster di klik, langsung menuju form, dan capster otomatis terpilih)
+                            -->
                 </a>
             </div>
         </div>
@@ -32,7 +32,7 @@
                         style="background-image: url('http://localhost:8000/images/PageBG/LPBG4.jpg')"></div>
                     <div class="booking-btn-area">
 
-                        <a href="{{ route('user.booking') }}" class="booking-link">
+                        <a href="{{ route('user.booking', $barber) }}" class="booking-link">
                             <h3>Book Your</h3>
                             <h4>Schedule Now</h4>
                             <div class="booking-btn-icon-bg"></div>
@@ -48,17 +48,17 @@
                     <div class="info-rating">
 
                         @php
-                            $rating             = 3.3;
-                            $intRating          = intval($rating);
+                            $rating = 3.3;
+                            $intRating = intval($rating);
                             $after_comma_rating = ($rating - $intRating) * 10;
                         @endphp
-                        
-                        @for ($i=1; $i<=5; $i++)
-                            @if($i<=$intRating)
+
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $intRating)
                                 <div class="star-rating full-star"></div>
                             @else
-                                @if($after_comma_rating > 0)
-                                    <div class="star-rating point-{{$after_comma_rating}}-star"></div>
+                                @if ($after_comma_rating > 0)
+                                    <div class="star-rating point-{{ $after_comma_rating }}-star"></div>
                                     @php
                                         $after_comma_rating = 0;
                                     @endphp
