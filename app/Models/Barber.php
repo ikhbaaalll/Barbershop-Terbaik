@@ -44,4 +44,9 @@ class Barber extends Model
     {
         return $this->hasMany(Facility::class);
     }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 }
