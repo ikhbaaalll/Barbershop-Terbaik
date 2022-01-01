@@ -9,9 +9,6 @@ window.onclick = function(event) {
     }
 }
 
-
-
-
 if (document.body.contains(document.getElementById("slide_0")))
 {
     let Radio = document.getElementsByClassName('slider_radio');
@@ -85,7 +82,7 @@ function CardSelected(ActiveIndex)
                 Cards[i].className = "slider-item hidden-slide-left";
             }
             
-            Cards[left2].className          = "slider-item slider-item-left2";
+            Cards[left2].className = "slider-item slider-item-left2";
         }
     }
 
@@ -119,4 +116,70 @@ function thisSelected(SelectedIndex)
         capsters[i].className    = "capster-choice";
     }
     capsters[SelectedIndex].className = "capster-choice selected-capster";
+}
+
+function showProfile(){
+    document.getElementById("activitySection").className = "profile-option";
+    document.getElementById("activityMenu").className    = "profile-menu-container";
+    document.getElementById("profileSection").className  = "profile-option selected-profile-option";
+    document.getElementById("profileMenu").className     = "profile-menu-container active-profile-menu";
+}
+
+function showActivities(){
+    document.getElementById("profileSection").className  = "profile-option";
+    document.getElementById("profileMenu").className     = "profile-menu-container";
+    document.getElementById("activitySection").className = "profile-option selected-profile-option";
+    document.getElementById("activityMenu").className    = "profile-menu-container active-profile-menu";
+}
+
+function showCancelModal(){
+    document.getElementById('CancelModal').style.display = "flex";
+}
+
+function closeCancelModal(){
+    document.getElementById('CancelModal').style.display = "none";
+}
+if (document.body.contains(document.getElementById("CancelModal"))){
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('CancelModal')) {
+            closeCancelModal();
+        }
+    }
+}
+function showExperience(scale)
+{
+    let ExperienceScale = document.getElementById('experience');
+    switch(scale) {
+        case 1:
+            ExperienceScale.innerText = 'Not surprising';
+            break;
+        case 2:
+            ExperienceScale.innerText = 'This is terrible';
+            break;
+        case 3:
+            ExperienceScale.innerText = 'This is suck';
+            break;
+        case 4:
+            ExperienceScale.innerText = 'Not Bad';
+            break;
+        case 5:
+            ExperienceScale.innerText = 'Fair enough';
+            break;
+        default:
+            ExperienceScale.innerText = 'Fuck You';
+    }
+}
+
+function showReviewModal(){
+    document.getElementById('ReviewModal').style.display = "flex";
+}
+function closeReviewModal(){
+    document.getElementById('ReviewModal').style.display = "none";
+}
+if (document.body.contains(document.getElementById("ReviewModal"))){
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('ReviewModal')) {
+            closeReviewModal();
+        }
+    }
 }

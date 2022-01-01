@@ -35,7 +35,7 @@
                 <a @if (Route::is('user.about'))class="active-header-menu"@endif href="{{ route('user.about') }}">About Us</a>
             </div>
             <div class="web-main-logo">
-                <a href="">Donjack <span>Barbershop</span></a>
+                <a href="{{ route('user.home') }}">Donjack <span>Barbershop</span></a>
             </div>
             <div class="header-menu flex-header-menu">
                 <h4 class="profile-btn">@if (Route::is('user.home'))Welcome, @endif
@@ -74,9 +74,14 @@
         @yield('content')
     </div>
 
+    <!-- ADDITTIONAL ELEMENT -->
+    @yield('additional-element')
+
     <script src="{{ asset('js/user_script.js') }}"></script>
 
+    <!-- ADDITTIONAL SCRIPT -->
     @yield('additional-script')
+
 </body>
 
 </html>

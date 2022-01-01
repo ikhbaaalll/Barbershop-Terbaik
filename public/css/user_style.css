@@ -615,7 +615,6 @@ h6    { font-size :  8px;}
 {
     text-shadow             : none;
 }
-
 .detail-info-area
 {
     width                   : 66%;
@@ -660,7 +659,6 @@ h6    { font-size :  8px;}
     word-spacing            : 5px;
 
 }
-
 .capster-row
 {
     width                   : 100%;
@@ -764,7 +762,6 @@ h6    { font-size :  8px;}
     border-radius           : 50%;
     margin-right            : 20px;
 }
-
 .capster-choice-info
 {
     color                   : #FFFFFF;
@@ -775,6 +772,396 @@ h6    { font-size :  8px;}
 {
     font-weight             : 400;
 }
+
+/* ---------------------------------------------------- */
+/* ------------------ PROFILE PAGE -------------------- */
+/* ---------------------------------------------------- */
+.profile-area
+{
+    width                   : 100%;
+    margin-top              : -70px;
+    display                 : flex;
+    justify-content         : space-between;
+
+}
+.profile-side-bar
+{
+    width                   : 18%;
+    padding                 : 30px 0;
+}
+.profile-option
+{
+    font-weight             : 700;
+    width                   : 100%;
+    font-size               : 22px;
+    margin                  : 20px 0;
+    cursor                  : pointer;
+    padding                 : 5px 15px;
+    color                   : #000000;
+    font-family             : 'lite-pop';
+    border-radius           : 0 15px 15px 0;
+    background              : linear-gradient(180deg, rgba(255,224,25,0.25) 0%, rgba(205,145,5,0.25) 100%);
+
+}
+.profile-option:hover
+{
+    background              : linear-gradient(180deg, rgba(255,224,25,0.35) 0%, rgba(205,145,5,0.35) 100%);
+}
+.selected-profile-option
+{
+    font-family             : 'pop';
+    box-shadow              : 0px 0px 5px 3px rgba(8, 8, 8, 0.75);
+    background              : linear-gradient(180deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
+}
+.selected-profile-option:hover
+{
+    background              : linear-gradient(350deg, rgba(255,224,25,1) 0%, rgba(205,145,5,1) 100%);
+}
+
+
+
+
+.profile-main-container
+{
+    width                   : 80%;
+
+    min-height              : 480px;
+}
+.profile-menu-container
+{
+    display                 : none;
+    width                   : 100%;
+    padding                 : 15px;
+    border-radius           : 20px 0 0 20px;
+    box-shadow              : 0px 0px 5px 3px rgba(8, 8, 8, 0.75);
+    
+    
+    background-color        : #00000065;
+    min-height              : 480px;
+}
+.active-profile-menu
+{
+    display                 : block;
+}
+.profile-menu-header
+{
+    width                   : 100%;
+    border-bottom           : solid 4px #CD9105;
+    padding-bottom          : 10px;
+    margin-bottom           : 15px;
+}
+.profile-menu-header h2
+{
+    color                   : #FFFFFF;
+}
+.profile-menu-content
+{
+    width                   : 100%;
+    display                 : flex;
+    justify-content         : space-between;
+    align-items             : center;
+}
+.profile-picture-area
+{
+    width                   : 460px;
+    height                  : 400px;
+    padding                 : 20px 50px;
+}
+.profile-picture-area img
+{
+    width                   : 360px;
+}
+.profile-information-area
+{
+    width                   : 55%;
+    height                  : 400px;
+    padding                 : 20px;
+}
+.profile-information-row
+{
+    width                   : 100%;
+    margin-bottom           : 15px;
+}
+.profile-information-row h5,
+.profile-information-row h2
+{
+    color                   : #FFF;
+    font-weight             : 400;
+}
+.profile-information-row h5
+{
+    font-family             : 'lite-pop';
+}
+.profile-information-row h2
+{
+    font-family             : 'pop';
+}
+
+.activities-menu-content
+{
+    width                   : 100%;
+
+    min-height              : 400px;
+}
+
+
+table.meja 
+{
+    border                  : solid 2px #383838;
+    background-color        : #636363;
+    width                   : 100%;
+    text-align              : center;
+    border-collapse         : collapse;
+}
+table.meja td, 
+table.meja th 
+{
+    border                  : 1px solid #383838;
+    padding                 : 3px 2px;
+}
+table.meja tbody td 
+{
+    font-size               : 14px;
+    color                   : #E6E6E6;
+}
+table.meja tr:nth-child(even) 
+{
+    background              : #888888;
+}
+table.meja thead 
+{
+    background              : #191919;
+    border-bottom           : 2px solid #000000;
+}
+table.meja thead th 
+{
+    font-size               : 15px;
+    font-weight             : bold;
+    color                   : #E6E6E6;
+    text-align              : center;
+}
+.actions
+{
+    display                 : block;
+    width                   : 60px;
+    padding                 : 2px 3px;
+    border-radius           : 10px;
+    margin                  : auto;
+    color                   : #fff;
+    cursor                  : pointer;
+}
+.review
+{
+    background-color        : #0fc727;
+}
+.review:hover
+{
+    background-color        : #10dd2b;
+}
+.cancel
+{
+    background-color        : #d41515;
+}
+.cancel:hover
+{
+    background-color        : #e91d1d;
+}
+
+.CancelModal,
+.ReviewModal
+{
+    position                : absolute;
+    left                    : 0;
+    top                     : 0;
+    width                   : 100%;
+    height                  : 100%;
+    z-index                 : 3;
+    overflow                : auto;
+    background-color        : #474e5d2c;
+    display                 : none;
+    justify-content         : center;
+}
+.modal-container
+{
+    box-sizing              : border-box;
+    margin-top              : 100px;
+    width                   : 40%;
+    margin                  : auto;
+    height                  : fit-content;
+    background-color        : #191919;
+    border-radius           : 10px;
+    padding                 : 10px;
+    box-shadow              : 0px 0px 10px 1px rgba(8, 8, 8, 0.75);
+}
+.modal-header
+{
+    width                   : 100%;
+    border-bottom           : solid 4px #CD9105;
+    padding                 : 5px 10px;
+    display                 : flex;
+    justify-content         : space-between;
+    align-items             : center;
+}
+.modal-header h1
+{
+    font-family             : 'bold-big';
+    color                   : #FFF;
+}
+.modal-header h1 span
+{
+    font-family             : 'bold-big';
+    color                   : #FADC00;
+}
+.modal-header .exit
+{
+    font-size               : 44px;
+    cursor                  : pointer;
+}
+.modal-header .exit:hover
+{
+    color                   : #1a3347;
+}
+.modal-content
+{
+    display                 : flex;
+    flex-direction          : column;
+    justify-content         : center;
+    align-items             : center;
+    min-height              : 240px;
+}
+.modal-content p
+{
+    color                   : #FFF;
+}
+.modal-footer
+{
+    display                 : flex;
+    justify-content         : space-between;
+    align-items             : center;
+    padding                 : 20px 10px;
+
+    border-top              : solid 4px #CD9105;
+}
+.flex-end
+{
+    justify-content         : flex-end;
+    padding: 20px 10px 0 10px;
+}
+.cancel-to-cancel,
+.sure-to-cancel
+{
+    display                 : flex;
+    text-decoration         : none;
+    color                   : white;
+    width                   : 20%;
+    height                  : 40px;
+    font-weight             : 700;
+    font-size               : 20px;
+    justify-content         : center;
+    align-items             : center;
+    border-radius           : 5px;
+    cursor                  : pointer;
+}
+.cancel-to-cancel
+{
+    background-color        : #888888;
+}
+.cancel-to-cancel:hover
+{
+    background-color        : #a09e9e;
+}
+.sure-to-cancel
+{
+    background-color        : #d41515;
+}
+.sure-to-cancel:hover
+{
+    background-color        : #e71919;
+}
+
+
+/* .review-modal-content
+{
+
+} */
+.star-review
+{
+    width                   : 50%;
+    margin                  : 15px auto 0 auto;
+    display                 : flex;
+    justify-content         : space-evenly;
+    position                : relative;
+    transform               : rotateY(180deg);
+}
+.type-review
+{
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: #010d16;
+    font-size: 15px;
+    color: #FADC00;
+    outline: none;
+    resize: none;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.experience
+{
+    text-align              : center;
+    height                  : 30px;
+    font-size               : 20px;
+    font-family             : 'pop';
+    color                   : #FFF;
+    margin-bottom           : 20px;
+}
+.star-review input
+{
+    display                 : none;
+}
+.star-review label
+{
+    display                 : block;
+    cursor                  : pointer;
+    width                   : 60px;
+}
+.star-review label::before
+{
+    content                 : '★';
+    display                 : block;
+    position                : relative;
+    font-size               : 50px;
+}
+.star-review label::after
+{
+    content                 : '★';
+    display                 : block;
+    position                : absolute;
+    top                     : 0;
+    font-size               : 50px;
+    color                   : #FADC00;
+    opacity                 : 0;
+}
+.star-review label:hover::after,
+.star-review label:hover ~ label::after,
+.star-review input:checked ~ label::after
+{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ---------------------------------------------------- */
 /* ---------------------- CARDS ----------------------- */
 /* ---------------------------------------------------- */
@@ -809,6 +1196,10 @@ h6    { font-size :  8px;}
 }
 .form-card h4{margin-bottom:30px;}
 .form-card a{text-decoration:none;color:#ffe019dc;}
+
+/* ---------------------------------------------------- */
+/* ---------------------- INPUTS ---------------------- */
+/* ---------------------------------------------------- */
 .input-group-row
 {
     display                 : flex;
@@ -909,9 +1300,9 @@ h6    { font-size :  8px;}
 
 
 
-
-
-
+/* --------------------------------------- */
+/* ---------------- ICONS ---------------- */
+/* --------------------------------------- */
 .icon
 {
     position                : absolute;
@@ -973,6 +1364,68 @@ h6    { font-size :  8px;}
 .point-8-star   {background-image: url(../images/Icons/Stars/star_e8.png);}
 .point-8-star   {background-image: url(../images/Icons/Stars/star_e9.png);}
 .full-star      {background-image: url(../images/Icons/Stars/star_f.png);}
+
+
+/* --------------------------------------- */
+/* --------------- STATUSES -------------- */
+/* --------------------------------------- */
+
+.status
+{
+    width                   : 80px;
+    height                  : 22px;
+    font-size               : 14px;
+    font-weight             : 400;
+    border-radius           : 3px;
+    text-align              : center;
+    margin                  : auto;
+}
+.waiting
+{
+    background-color        : #d3d0d0;
+    color                   : #757575;
+}
+.waiting::after
+{
+    content                 : "Waiting";
+}
+.approved
+{
+    background-color        : #1a3347;
+    color                   : #4484af;
+}
+.approved::after
+{
+    content                 : "Approved";
+}
+.finished
+{
+    background-color        : #1A4729;
+    color                   : #44af67;
+}
+
+.finished::after
+{
+    content                 : "Finished";
+}
+.rejected
+{
+    background-color        : #790b0b;
+    color                   : #da6f6f;
+}
+.rejected::after
+{
+    content                 : "Rejected";
+}
+.canceled
+{
+    background-color        : #d88f20;
+    color                   : #f7ebdd;
+}
+.canceled::after
+{
+    content                : "Canceled";
+}
 
 /*  */
 :root {
