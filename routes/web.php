@@ -30,10 +30,13 @@ Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => '
 });
 
 Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {
-    Route::get('home',              [UserController::class, 'index']    )->name('home');
-    Route::get('detail/{barber}',   [UserController::class, 'detail']   )->name('detail');
-    Route::get('capster',           [UserController::class, 'capster']  )->name('capster');
-    Route::get('booking',           [UserController::class, 'booking']  )->name('booking');
-    Route::get('profile',           [UserController::class, 'profile']  )->name('profile');
-    Route::get('about',             [UserController::class, 'about']    )->name('about');
+    Route::get('home',                  [UserController::class, 'index'])->name('home');
+    Route::get('detail/{barber}',       [UserController::class, 'detail'])->name('detail');
+    Route::get('capster/{barber}',      [UserController::class, 'capster'])->name('capster');
+    Route::get('booking/{barber}',      [UserController::class, 'booking'])->name('booking');
+    Route::post('booking/{barber}',     [UserController::class, 'bookingStore'])->name('booking.store');
+    Route::get('profile',               [UserController::class, 'profile'])->name('profile');
+    Route::get('about',                 [UserController::class, 'about'])->name('about');
+    Route::post('review/{order}',       [UserController::class, 'review'])->name('review');
+    Route::post('cancel/{order}',       [UserController::class, 'cancel'])->name('cancel');
 });
