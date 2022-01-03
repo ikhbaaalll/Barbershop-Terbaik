@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CapsterController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserController;
@@ -25,8 +25,9 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => 'admin'], function () {
-    Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::resource('capsters', CapsterController::class)->except('show');
+    Route::get('orders', [OrderController::class, 'index'])->name('order.index');
+    Route::post('orders/{order}', [OrderController::class, 'update'])->name('order.update');
 });
 
 Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {
