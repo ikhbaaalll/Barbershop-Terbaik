@@ -11,10 +11,19 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="{{ route('admin.dashboard') }}" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
+                <a href="{{ route('admin.order.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-table"></i>
                     <p>
-                        {{ __('Dashboard') }}
+                        {{ __('Order') }}
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.capsters.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-user-plus"></i>
+                    <p>
+                        {{ __('Capster') }}
                     </p>
                 </a>
             </li>
