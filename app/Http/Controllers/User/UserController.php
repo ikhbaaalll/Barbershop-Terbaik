@@ -13,7 +13,15 @@ class UserController extends Controller
     public function index()
     {
         $barbers = Barber::query()
+            ->withAvg('orders', 'review_star')
             ->get();
+
+        $barbers->transform(function ($barber) {
+            $barber->orders_avg_review_star = number_format($barber->orders_avg_review_star, 1);
+            $barber->avg_review_star = intval($barber->orders_avg_review_star);
+            $barber->avg_review_star_comma = intval(($barber->orders_avg_review_star - $barber->avg_review_star) * 10);
+            return $barber;
+        });
 
         $barberCount = $barbers->count();
 
@@ -21,7 +29,14 @@ class UserController extends Controller
     }
     public function detail(Barber $barber)
     {
-        $barber->load(['services', 'facilities']);
+        $barber = Barber::query()
+            ->with(['services', 'facilities'])
+            ->withAvg('orders', 'review_star')
+            ->find($barber->id);
+
+        $barber->orders_avg_review_star = number_format($barber->orders_avg_review_star, 1);
+        $barber->avg_review_star = intval($barber->orders_avg_review_star);
+        $barber->avg_review_star_comma = intval(($barber->orders_avg_review_star - $barber->avg_review_star) * 10);
 
         return view('pages.user.detail', compact('barber'));
     }

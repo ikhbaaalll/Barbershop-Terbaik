@@ -34,33 +34,25 @@
                             <div class="shop-desc">
                                 <h3 class="shop-name">{{ $barber->name }}</h3>
                                 <h4 class="shop-address">{{ $barber->address }}</h4>
-
-                                @php
-                                    $ratings = [4.3, 3.2, 1.4, 3.7, 2.6, 3.5, 5.0];
-                                @endphp
-
                                 <div class="shop-rating">
-                                    @php
-                                        $intrating          = intval($ratings[$loop->index]);
-                                        $after_comma_rating = ($ratings[$loop->index] - $intrating) * 10;
-                                    @endphp
-                                    @for ($j = 1; $j<=5; $j++)
-                                        @if($j<=$intrating)
+                                    @for ($j = 1; $j <= 5; $j++)
+                                        @if ($j <= $barber->avg_review_star)
                                             <div class="star-rating full-star"></div>
                                         @else
-                                            @if($after_comma_rating > 0)
-                                                <div class="star-rating point-{{$after_comma_rating}}-star"></div>
+                                            @if ($barber->avg_review_star_comma > 0)
+                                                <div class="star-rating point-{{ $barber->avg_review_star_comma }}-star">
+                                                </div>
                                                 @php
-                                                    $after_comma_rating = 0;
+                                                    $barber->avg_review_star_comma = 0;
                                                 @endphp
                                             @else
                                                 <div class="star-rating empty-star"></div>
                                             @endif
                                         @endif
                                     @endfor
-                                    
-                                    <h4>({{ $ratings[$loop->index] }})</h4>
-                                    
+
+                                    <h4>({{ $barber->orders_avg_review_star }})</h4>
+
                                 </div>
                                 <a class="shop-detail" href="{{ route('user.detail', $barber) }}">View Detail</a>
                             </div>

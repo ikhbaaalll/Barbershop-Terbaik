@@ -17,11 +17,11 @@
                 <a class="choose-capster-btn" href="{{ route('user.capster', $barber) }}">
                     <h4>See Capster</h4><span>&gt;</span>
                     <!-- 
-                                Sementara kuubah dari 'CHOOSE' jadi 'SEE' 
-                                karena dari pembahasan terakhir
-                                pengguna gak memilih capster dari sini 
-                                (atau bisa aja ketika capster di klik, langsung menuju form, dan capster otomatis terpilih)
-                            -->
+                                        Sementara kuubah dari 'CHOOSE' jadi 'SEE' 
+                                        karena dari pembahasan terakhir
+                                        pengguna gak memilih capster dari sini 
+                                        (atau bisa aja ketika capster di klik, langsung menuju form, dan capster otomatis terpilih)
+                                    -->
                 </a>
             </div>
         </div>
@@ -46,21 +46,15 @@
                 <div class="detail-info-header">
                     {{ $barber->name }}
                     <div class="info-rating">
-
-                        @php
-                            $rating = 3.3;
-                            $intRating = intval($rating);
-                            $after_comma_rating = ($rating - $intRating) * 10;
-                        @endphp
-
-                        @for ($i = 1; $i <= 5; $i++)
-                            @if ($i <= $intRating)
+                        @for ($j = 1; $j <= 5; $j++)
+                            @if ($j <= $barber->avg_review_star)
                                 <div class="star-rating full-star"></div>
                             @else
-                                @if ($after_comma_rating > 0)
-                                    <div class="star-rating point-{{ $after_comma_rating }}-star"></div>
+                                @if ($barber->avg_review_star_comma > 0)
+                                    <div class="star-rating point-{{ $barber->avg_review_star_comma }}-star">
+                                    </div>
                                     @php
-                                        $after_comma_rating = 0;
+                                        $barber->avg_review_star_comma = 0;
                                     @endphp
                                 @else
                                     <div class="star-rating empty-star"></div>
@@ -68,7 +62,7 @@
                             @endif
                         @endfor
 
-                        <h4>({{ $rating }})</h4>
+                        <h4>({{ $barber->orders_avg_review_star }})</h4>
 
                     </div>
                 </div>
