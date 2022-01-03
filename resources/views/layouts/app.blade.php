@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" href="{{ asset('css/table/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/table/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/table/buttons.bootstrap4.min.css') }}">
     @yield('styles')
 </head>
 
@@ -102,6 +106,19 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
+    <!-- DataTable JS -->
+    <script src="{{ asset('js/table/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/table/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/table/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('js/table/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/table/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('js/table/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/table/jszip.min.js') }}"></script>
+    <script src="{{ asset('js/table/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('js/table/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('js/table/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('js/table/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('js/table/buttons.colVis.min.js') }}"></script>
 
     @yield('scripts')
 </body>
