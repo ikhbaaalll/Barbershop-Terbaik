@@ -16,12 +16,6 @@
             <div class="detail-header-btn">
                 <a class="choose-capster-btn" href="{{ route('user.capster', $barber) }}">
                     <h4>See Capster</h4><span>&gt;</span>
-                    <!-- 
-                                        Sementara kuubah dari 'CHOOSE' jadi 'SEE' 
-                                        karena dari pembahasan terakhir
-                                        pengguna gak memilih capster dari sini 
-                                        (atau bisa aja ketika capster di klik, langsung menuju form, dan capster otomatis terpilih)
-                                    -->
                 </a>
             </div>
         </div>
@@ -30,17 +24,10 @@
                 <div class="card detail-card">
                     <div class="detail-card-image"
                         style="background-image: url('http://localhost:8000/images/PageBG/LPBG4.jpg')"></div>
-                    <div class="booking-btn-area">
-
-                        <a href="{{ route('user.booking', $barber) }}" class="booking-link">
-                            <h3>Book Your</h3>
-                            <h4>Schedule Now</h4>
-                            <div class="booking-btn-icon-bg"></div>
-                            <div class="booking-btn-icon"></div>
-                        </a>
-
-                    </div>
                 </div>
+                
+            {{-- 'open' => date('H:i:s', rand(28800,36000)), // 08:00:00 - 10:00:00
+            'close' => date('H:i:s', rand(77400,79200)), // 21:30:00 - 22:00:00 --}}
             </div>
             <div class="detail-info-area">
                 <div class="detail-info-header">
