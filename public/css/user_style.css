@@ -136,6 +136,10 @@ h6 {
     text-align: center;
     width: 25%;
 }
+.align-left
+{
+    text-align: left;
+}
 .header-menu span,
 .header-menu a {
     font-weight: 500;

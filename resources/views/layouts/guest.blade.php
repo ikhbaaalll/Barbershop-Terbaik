@@ -27,12 +27,10 @@
     <!-- HEADER NAVIGATION BAR -->
     @auth
         <div class="logged-in-header">
-            <div class="header-menu">
+            <div class="header-menu align-left">
                 <a @if (Route::is('user.home'))class="active-header-menu"@endif href="{{ route('user.home') }}">Home</a>
                 <span> | </span>
                 <a @if (Route::is('user.profile'))class="active-header-menu"@endif href="{{ route('user.profile') }}">Profile</a>
-                <span> | </span>
-                <a @if (Route::is('user.about'))class="active-header-menu"@endif href="{{ route('user.about') }}">About Us</a>
             </div>
             <div class="web-main-logo">
                 <a href="{{ route('user.home') }}">Donjack <span>Barbershop</span></a>
@@ -59,11 +57,6 @@
         <div class="header">
             <div class="web-main-logo">
                 <a href="">Donjack <span>Barbershop</span></a>
-            </div>
-            <div class="header-menu">
-                <a href="">About Us</a>
-                <span> | </span>
-                <a href="">Contact Us</a>
             </div>
         </div>
     @endauth
