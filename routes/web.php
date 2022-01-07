@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\CapsterController;
+use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserController;
@@ -25,9 +27,11 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => 'admin'], function () {
-    Route::resource('capsters', CapsterController::class)->except('show');
+    Route::resource('capsters', CapsterController::class)->except(['show', 'create', 'store']);
     Route::get('orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('orders/{order}', [OrderController::class, 'update'])->name('order.update');
+    Route::resource('facilities', FacilityController::class)->except(['show', 'create', 'store']);
+    Route::resource('services', ServiceController::class)->except(['show', 'create', 'store']);
 });
 
 Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {
