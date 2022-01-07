@@ -42,7 +42,6 @@
                 </div>
             </div>
 
-
             <div id="activityMenu" class="profile-menu-container">
                 <div class="profile-menu-header">
                     <h2>Activities</h2>
@@ -81,65 +80,12 @@
                                     </td>
                                     <td>
                                         @switch($order->status)
-                                            @case(0) <div class="actions cancel" onclick="showCancelModal()">Cancel</div> @break
-                                            @case(2) <div class="actions review" onclick="showReviewModal()" data-id="{{ $order->id }}">Review</div> @break
+                                            @case(0) <div class="actions cancel" onclick="showCancelModal({{ $order->id }})">Cancel</div> @break
+                                            @case(2) <div class="actions review" onclick="showReviewModal({{ $order->id }})">Review</div> @break
                                             @default
                                         @endswitch
                                     </td>
                                 </tr>
-                                <div class="ReviewModal" id="ReviewModal">
-                                    <div class="modal-container">
-                                        <form action="{{ route('user.review', $order) }}" method="POST">
-                                            @csrf
-                                            <div class="modal-header">
-                                                <h3>Describe your <span>Experience</span></h3>
-                                                <div class="exit" onclick="closeReviewModal()">&times;</div>
-                                            </div>
-                                            <div class="review-modal-content">
-                                                <div class="star-review">
-                                                    <input type="radio" name="review_star" id="star1" value="5"
-                                                        onclick="showExperience(5)" required><label for="star1"></label>
-                                                    <input type="radio" name="review_star" id="star2" value="4"
-                                                        onclick="showExperience(4)" required><label for="star2"></label>
-                                                    <input type="radio" name="review_star" id="star3" value="3"
-                                                        onclick="showExperience(3)" required><label for="star3"></label>
-                                                    <input type="radio" name="review_star" id="star4" value="2"
-                                                        onclick="showExperience(2)" required><label for="star4"></label>
-                                                    <input type="radio" name="review_star" id="star5" value="1"
-                                                        onclick="showExperience(1)" required><label for="star5"></label>
-                                                </div>
-
-                                                <div class="experience" id="experience"></div>
-                                                <textarea name="review_text" id="review" class="type-review"
-                                                    placeholder="Type some review"></textarea>
-
-                                            </div>
-                                            <div class="modal-footer flex-end">
-                                                <div class="input-group">
-                                                    <button type="submit" class="form-btn">Review</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="CancelModal" id="CancelModal">
-                                    <div class="modal-container">
-                                        <div class="modal-header">
-                                            <h3>Cancellation <span>Confirmation</span></h3>
-                                            <div class="exit" onclick="closeCancelModal()">&times;</div>
-                                        </div>
-                                        <div class="modal-content">
-                                            <p>Are you sure you want to cancel this activity?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a class="cancel-to-cancel" onclick="closeCancelModal()">No</a>
-                                            <form action="{{ route('user.cancel', $order) }}" method="POST">
-                                                @csrf
-                                                <button class="sure-to-cancel" type="submit">Yes</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             @endforeach
                         </tbody>
                     </table>
@@ -151,5 +97,60 @@
 @endsection
 
 @section('additional-element')
+    <div class="ReviewModal" id="ReviewModal">
+        <div class="modal-container">
+            <form action="{{ route('user.review') }}" method="POST">
+                @csrf
+                <input type="hidden" name="OrderID" id="OrderID">
+                <div class="modal-header">
+                    <h3>Describe your <span>Experience</span></h3>
+                    <div class="exit" onclick="closeReviewModal()">&times;</div>
+                </div>
+                <div class="review-modal-content">
+                    <div class="star-review">
+                        <input type="radio" name="review_star" id="star1" value="5"
+                            onclick="showExperience(5)" required><label for="star1"></label>
+                        <input type="radio" name="review_star" id="star2" value="4"
+                            onclick="showExperience(4)" required><label for="star2"></label>
+                        <input type="radio" name="review_star" id="star3" value="3"
+                            onclick="showExperience(3)" required><label for="star3"></label>
+                        <input type="radio" name="review_star" id="star4" value="2"
+                            onclick="showExperience(2)" required><label for="star4"></label>
+                        <input type="radio" name="review_star" id="star5" value="1"
+                            onclick="showExperience(1)" required><label for="star5"></label>
+                    </div>
 
+                    <div class="experience" id="experience"></div>
+                    <textarea name="review_text" id="review" class="type-review"
+                        placeholder="Type some review"></textarea>
+
+                </div>
+                <div class="modal-footer flex-end">
+                    <div class="input-group">
+                        <button type="submit" class="form-btn">Review</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="CancelModal" id="CancelModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Cancellation <span>Confirmation</span></h3>
+                <div class="exit" onclick="closeCancelModal()">&times;</div>
+            </div>
+            <div class="modal-content">
+                <p>Are you sure you want to cancel this activity?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-to-cancel" onclick="closeCancelModal()">No</button>
+                <form action="{{ route('user.cancel') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="orderID" id="orderID">
+                    <button class="sure-to-cancel" type="submit">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection

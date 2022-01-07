@@ -113,7 +113,9 @@ function showActivities() {
     document.getElementById("activityMenu").className = "profile-menu-container active-profile-menu";
 }
 
-function showCancelModal() {
+function showCancelModal(ID) {
+    let OrderID = document.getElementById('orderID');
+    OrderID.value = ID;
     document.getElementById('CancelModal').style.display = "flex";
 }
 
@@ -127,6 +129,8 @@ if (document.body.contains(document.getElementById("CancelModal"))) {
         }
     }
 }
+
+
 function showExperience(scale) {
     let ExperienceScale = document.getElementById('experience');
     switch (scale) {
@@ -150,16 +154,11 @@ function showExperience(scale) {
     }
 }
 
-function showReviewModal() {
+function showReviewModal(ID) {
+    let OrderID = document.getElementById('OrderID');
+    OrderID.value = ID;
     document.getElementById('ReviewModal').style.display = "flex";
 }
 function closeReviewModal() {
     document.getElementById('ReviewModal').style.display = "none";
-}
-if (document.body.contains(document.getElementById("ReviewModal"))) {
-    window.onclick = function (event) {
-        if (event.target == document.getElementById('ReviewModal')) {
-            closeReviewModal();
-        }
-    }
 }

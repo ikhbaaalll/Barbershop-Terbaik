@@ -42,6 +42,6 @@ Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {
     Route::post('booking/{barber}',     [UserController::class, 'bookingStore'])->name('booking.store');
     Route::get('profile',               [UserController::class, 'profile'])->name('profile');
     Route::get('about',                 [UserController::class, 'about'])->name('about');
-    Route::post('review/{order}',       [UserController::class, 'review'])->name('review');
-    Route::post('cancel/{order}',       [UserController::class, 'cancel'])->name('cancel');
+    Route::post('review',               [UserController::class, 'review'])->name('review');
+    Route::post('cancel',               [UserController::class, 'cancel'])->name('cancel');
 });

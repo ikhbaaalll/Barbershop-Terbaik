@@ -60,15 +60,11 @@
 
                     <div class="input-group-col col-7 vertical-margin-20">
                         <h2 class="smemew">Choose Capster</h2>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                        @error('capster_id')
+                            <div class="booking-error-message">
+                                You should choose a capster
                             </div>
-                        @endif
+                        @enderror
                         @for ($i = 0; $i < $barber->capsters_count; $i++)
                             <input type="radio" name="capster_id" id="capster{{ $i }}"
                                 value="{{ $barber->capsters[$i]->id }}" class="capster-radio">

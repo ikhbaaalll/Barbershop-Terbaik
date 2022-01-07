@@ -969,8 +969,6 @@ table.meja thead th {
 }
 .cancel-to-cancel,
 .sure-to-cancel {
-    display: flex;
-    text-decoration: none;
     color: white;
     width: 20%;
     height: 40px;
@@ -980,6 +978,7 @@ table.meja thead th {
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
 }
 .cancel-to-cancel {
     background-color: #888888;
@@ -987,17 +986,18 @@ table.meja thead th {
 .cancel-to-cancel:hover {
     background-color: #a09e9e;
 }
+.modal-footer form
+{
+    width: 20%;
+}
 .sure-to-cancel {
+    width: 100%;
     background-color: #d41515;
 }
 .sure-to-cancel:hover {
     background-color: #e71919;
 }
 
-/* .review-modal-content
-{
-
-} */
 .star-review {
     width: 50%;
     margin: 10px auto 0 auto;
@@ -1049,6 +1049,7 @@ table.meja thead th {
     font-size: 50px;
     color: #fadc00;
     opacity: 0;
+    transition: 0.25s ease;
 }
 .star-review label:hover::after,
 .star-review label:hover ~ label::after,
@@ -1186,10 +1187,15 @@ table.meja thead th {
     font-weight: 400;
     top: 100%;
     color: #ff3e3e;
-    border-radius: 5px;
     padding: 1px 3px;
 }
-
+.booking-error-message
+{
+    font-weight: 400;
+    font-size: 18px;
+    color: #ff3e3e;
+    padding: 1px 3px;
+}
 /* --------------------------------------- */
 /* ---------------- ICONS ---------------- */
 /* --------------------------------------- */

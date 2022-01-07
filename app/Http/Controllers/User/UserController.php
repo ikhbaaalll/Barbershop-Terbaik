@@ -83,26 +83,29 @@ class UserController extends Controller
         return view('pages.user.about');
     }
 
-    public function review(Order $order)
+    public function review(Request $request)
     {
-        $validator = validator()->make(request()->all(), [
+        $order = Order::firstWhere('id', $request['OrderID']);
+
+        $validated_data = $request->validate([
             'review_star' => ['required', 'in:1,2,3,4,5', 'integer'],
             'review_text' => ['nullable']
         ]);
 
-        $order->update($validator->validated() + [
+        $order->update($validated_data + [
             'status' => Order::STATUS_REVIEWED
         ]);
 
         return redirect()->route('user.profile');
     }
 
-    public function cancel(Order $order)
+    public function cancel(Request $request)
     {
+        $order = Order::firstWhere('id', $request['orderID']);
         $order->update([
             'status' => Order::STATUS_CANCEL
         ]);
-
+        
         return redirect()->route('user.profile');
     }
 }
