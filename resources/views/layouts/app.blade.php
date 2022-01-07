@@ -74,6 +74,9 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            @if (session('status'))
+                <div class="alert alert-success mx-2">{{ session('status') }}</div>
+            @endif
             @yield('content')
         </div>
         <!-- /.content-wrapper -->
@@ -95,8 +98,7 @@
                 Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
+            <strong>Copyright &copy; {{ date('Y') }} <a href="#">DonJack Barbershop</a>.</strong>
         </footer>
     </div>
     <!-- ./wrapper -->

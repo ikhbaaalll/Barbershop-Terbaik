@@ -29,15 +29,24 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
+                <a href="{{ route('admin.facilities.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-thumbtack"></i>
                     <p>
-                        {{ __('Users') }}
+                        {{ __('Facility') }}
                     </p>
                 </a>
             </li>
 
             <li class="nav-item">
+                <a href="{{ route('admin.services.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-cogs"></i>
+                    <p>
+                        {{ __('Service') }}
+                    </p>
+                </a>
+            </li>
+
+            {{-- <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon far fa-address-card"></i>
                     <p>
@@ -62,7 +71,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
