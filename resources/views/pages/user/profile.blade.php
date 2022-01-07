@@ -56,6 +56,7 @@
                                 <th width="20%">Barbershop</th>
                                 <th width="15%">Capster</th>
                                 <th width="12%">Status</th>
+                                <th width="10%">Rating</th>
                                 <th width="13%">Action</th>
                             </tr>
                         </thead>
@@ -77,6 +78,13 @@
                                             @case(5) <div class="status reviewed"></div> @break
                                             @default <div class="status waiting"> </div>
                                         @endswitch
+                                    </td>
+                                    <td>
+                                        @if ($order->review_star)
+                                            @for ($i = 0; $i < $order->review_star; $i++)
+                                                &#9733;
+                                            @endfor
+                                        @endif
                                     </td>
                                     <td>
                                         @switch($order->status)
@@ -101,23 +109,23 @@
         <div class="modal-container">
             <form action="{{ route('user.review') }}" method="POST">
                 @csrf
-                <input type="hidden" name="OrderID" id="OrderID">
+                <input type="hidden" name="order_id" id="OrderID">
                 <div class="modal-header">
                     <h3>Describe your <span>Experience</span></h3>
                     <div class="exit" onclick="closeReviewModal()">&times;</div>
                 </div>
                 <div class="review-modal-content">
                     <div class="star-review">
-                        <input type="radio" name="review_star" id="star1" value="5"
-                            onclick="showExperience(5)" required><label for="star1"></label>
-                        <input type="radio" name="review_star" id="star2" value="4"
-                            onclick="showExperience(4)" required><label for="star2"></label>
-                        <input type="radio" name="review_star" id="star3" value="3"
-                            onclick="showExperience(3)" required><label for="star3"></label>
-                        <input type="radio" name="review_star" id="star4" value="2"
-                            onclick="showExperience(2)" required><label for="star4"></label>
-                        <input type="radio" name="review_star" id="star5" value="1"
-                            onclick="showExperience(1)" required><label for="star5"></label>
+                        <input type="radio" name="review_star" id="star1" value="5" onclick="showExperience(5)"
+                            required><label for="star1"></label>
+                        <input type="radio" name="review_star" id="star2" value="4" onclick="showExperience(4)"
+                            required><label for="star2"></label>
+                        <input type="radio" name="review_star" id="star3" value="3" onclick="showExperience(3)"
+                            required><label for="star3"></label>
+                        <input type="radio" name="review_star" id="star4" value="2" onclick="showExperience(2)"
+                            required><label for="star4"></label>
+                        <input type="radio" name="review_star" id="star5" value="1" onclick="showExperience(1)"
+                            required><label for="star5"></label>
                     </div>
 
                     <div class="experience" id="experience"></div>
@@ -147,7 +155,7 @@
                 <button class="cancel-to-cancel" onclick="closeCancelModal()">No</button>
                 <form action="{{ route('user.cancel') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="orderID" id="orderID">
+                    <input type="hidden" name="order_id" id="orderID">
                     <button class="sure-to-cancel" type="submit">Yes</button>
                 </form>
             </div>

@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => '
 Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {
     Route::get('home',                  [UserController::class, 'index'])->name('home');
     Route::get('detail/{barber}',       [UserController::class, 'detail'])->name('detail');
-    Route::get('capster/{barber}',      [UserController::class, 'capster'])->name('capster');
+    Route::get('capsters/{barber}',      [UserController::class, 'capster'])->name('capster');
     Route::get('booking/{barber}',      [UserController::class, 'booking'])->name('booking');
     Route::post('booking/{barber}',     [UserController::class, 'bookingStore'])->name('booking.store');
     Route::get('profile',               [UserController::class, 'profile'])->name('profile');

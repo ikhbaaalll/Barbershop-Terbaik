@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\BookingRequest;
 use App\Models\Barber;
 use App\Models\Order;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -83,29 +82,33 @@ class UserController extends Controller
         return view('pages.user.about');
     }
 
-    public function review(Request $request)
+    public function review()
     {
-        $order = Order::firstWhere('id', $request['OrderID']);
+        $order = Order::query()
+            ->whereBelongsTo(auth()->user())
+            ->find(request()->order_id);
 
-        $validated_data = $request->validate([
+        $validator = validator(request()->all(), [
             'review_star' => ['required', 'in:1,2,3,4,5', 'integer'],
             'review_text' => ['nullable']
         ]);
 
-        $order->update($validated_data + [
+        $order->update($validator->validated() + [
             'status' => Order::STATUS_REVIEWED
         ]);
 
         return redirect()->route('user.profile');
     }
 
-    public function cancel(Request $request)
+    public function cancel()
     {
-        $order = Order::firstWhere('id', $request['orderID']);
-        $order->update([
-            'status' => Order::STATUS_CANCEL
-        ]);
-        
+        Order::query()
+            ->whereBelongsTo(auth()->user())
+            ->find(request()->order_id)
+            ->update([
+                'status' => Order::STATUS_CANCEL
+            ]);
+
         return redirect()->route('user.profile');
     }
 }

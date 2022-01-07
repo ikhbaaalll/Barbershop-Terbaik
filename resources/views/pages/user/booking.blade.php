@@ -42,10 +42,10 @@
                         <h2 class="smemew">Choose time</h2>
                         <div class="input-group col-63">
                             @php
-                                $open       = new DateTime($barber->open->format('H:i'));
-                                $close      = new DateTime($barber->close->format('H:i'));
-                                $interval   = DateInterval::createFromDateString('45 min');
-                                $times      = new DatePeriod($open, $interval, $close);
+                                $open = new DateTime($barber->open->format('H:i'));
+                                $close = new DateTime($barber->close->format('H:i'));
+                                $interval = DateInterval::createFromDateString('45 min');
+                                $times = new DatePeriod($open, $interval, $close);
                             @endphp
                             <select name="order_time" id="time" class="form-control no-padding">
 
@@ -62,7 +62,7 @@
                         <h2 class="smemew">Choose Capster</h2>
                         @error('capster_id')
                             <div class="booking-error-message">
-                                You should choose a capster
+                                {{ $message }}
                             </div>
                         @enderror
                         @for ($i = 0; $i < $barber->capsters_count; $i++)
@@ -74,37 +74,37 @@
                             <div class="capster-row">
                                 @if ($barber->capsters_count > 1)
                                     @for ($j = 0; $j < 2; $j++)
-                                        @break($j + $i == $barber->capsters_count)
-                                        <label for="capster{{ $i + $j }}" class="capster-choice"
-                                            onclick="thisSelected({{ $i + $j }})">
-                                            <img class="capster-choice-photo" src="{{ $barber->capsters[$i + $j]->photo }}"
-                                                alt="">
-                                            <div class="capster-choice-info">
-                                                <h3>{{ $barber->capsters[$i + $j]->name }}</h3>
-                                                <h5>{{ $barber->capsters[$i + $j]->age }} tahun</h5>
-                                            </div>
-                                        </label>
-                                    @endfor
-                                @else
-                                    <label for="capster{{ $i }}" class="capster-choice"
-                                        onclick="thisSelected({{ $i }})">
-                                        <img class="capster-choice-photo" src="{{ $barber->capsters[$i]->photo }}" alt="">
+                                    @break($j + $i == $barber->capsters_count)
+                                    <label for="capster{{ $i + $j }}" class="capster-choice"
+                                        onclick="thisSelected({{ $i + $j }})">
+                                        <img class="capster-choice-photo" src="{{ $barber->capsters[$i + $j]->photo }}"
+                                            alt="">
                                         <div class="capster-choice-info">
-                                            <h3>{{ $barber->capsters[$i]->name }}</h3>
-                                            <h5>{{ $barber->capsters[$i]->age }} tahun</h5>
+                                            <h3>{{ $barber->capsters[$i + $j]->name }}</h3>
+                                            <h5>{{ $barber->capsters[$i + $j]->age }} tahun</h5>
                                         </div>
                                     </label>
-                                @endif
-                            </div>
-                        @endfor
+                                @endfor
+                            @else
+                                <label for="capster{{ $i }}" class="capster-choice"
+                                    onclick="thisSelected({{ $i }})">
+                                    <img class="capster-choice-photo" src="{{ $barber->capsters[$i]->photo }}" alt="">
+                                    <div class="capster-choice-info">
+                                        <h3>{{ $barber->capsters[$i]->name }}</h3>
+                                        <h5>{{ $barber->capsters[$i]->age }} tahun</h5>
+                                    </div>
+                                </label>
+                        @endif
                     </div>
+                    @endfor
                 </div>
-
-                <div class="input-group right">
-                    <button type="submit" class="form-btn col-3">Book Your Schedule</button>
-                </div>
-            </form>
         </div>
+
+        <div class="input-group right">
+            <button type="submit" class="form-btn col-3">Book Your Schedule</button>
+        </div>
+        </form>
+    </div>
     </div>
 
 @endsection
