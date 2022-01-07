@@ -42,10 +42,10 @@
                         <h2 class="smemew">Choose time</h2>
                         <div class="input-group col-63">
                             @php
-                                $open = new DateTime($barber->open->format('H:i'));
-                                $close = new DateTime($barber->close->format('H:i'));
-                                $interval = DateInterval::createFromDateString('45 min');
-                                $times = new DatePeriod($open, $interval, $close);
+                                $open       = new DateTime($barber->open->format('H:i'));
+                                $close      = new DateTime($barber->close->format('H:i'));
+                                $interval   = DateInterval::createFromDateString('45 min');
+                                $times      = new DatePeriod($open, $interval, $close);
                             @endphp
                             <select name="order_time" id="time" class="form-control no-padding">
 

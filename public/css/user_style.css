@@ -19,6 +19,11 @@
     font-family: bold-pop;
     src: url(../fonts/Poppins/Poppins-Bold.ttf);
 }
+@font-face {
+    font-family: mono;
+    src: url(../fonts/Azeret_Mono/AzeretMono-Light.ttf);
+}
+
 
 * {
     margin: 0px;
@@ -606,6 +611,11 @@ h6 {
     font-weight: 400;
     word-spacing: 5px;
 }
+.input-group select,
+.input-group option
+{
+    font-family: 'mono';
+}
 .capster-row {
     width: 100%;
     margin-top: 30px;
@@ -1168,6 +1178,7 @@ table.meja thead th {
     border: none;
     color: #0f0f0f;
     background: #fadc00;
+    z-index: 3;
 }
 .error-message {
     position: absolute;
@@ -1217,6 +1228,7 @@ table.meja thead th {
 .logout-icon {
     left: 8px;
     background-image: url(../images/Icons/logout.png);
+    z-index: 3;
 }
 .star-rating {
     width: 25px;

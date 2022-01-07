@@ -15,6 +15,11 @@ class BarberFactory extends Factory
      */
     public function definition()
     {
+        $open1  = '07:59:00';
+        $open2  = '10:00:00';
+        $close1 = '20:29:00';
+        $close2 = '22:00:00';
+
         return [
             'user_id' => User::factory()->create(['role' => User::ROLE_OWNER]),
             'name' => $this->faker->company(),
