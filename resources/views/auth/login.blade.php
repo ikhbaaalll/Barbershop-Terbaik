@@ -1,5 +1,9 @@
 @extends('layouts.guest')
 
+@section('title')
+    Login
+@endsection
+
 <!-- CUSTOM PAGE BACKGROUND KHUSUS HALAMAN LOGIN -->
 @section('CustomBG') <div class="login-page-background"></div> @endsection
 
@@ -18,7 +22,8 @@
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="input-group">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" required value="{{ old('email') }}" autocomplete="off">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            placeholder="{{ __('Email') }}" required value="{{ old('email') }}" autocomplete="off">
                         <i class="icon username-icon"></i>
                         @error('email')
                             <i class="icon error-icon"></i>
@@ -27,9 +32,10 @@
                             </div>
                         @enderror
                     </div>
-        
+
                     <div class="input-group">
-                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}" required>
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                            placeholder="{{ __('Password') }}" required>
                         <i class="icon password-icon"></i>
                         @error('password')
                             <i class="icon error-icon"></i>

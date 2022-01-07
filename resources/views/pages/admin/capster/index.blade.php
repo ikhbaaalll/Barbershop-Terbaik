@@ -20,7 +20,7 @@
                                         <th style="width: 30px">Photo</th>
                                         <th>Name</th>
                                         <th>Age</th>
-                                        <th>Action</th>
+                                        <th style="width: 100px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
