@@ -21,7 +21,7 @@
                                         <th>Date</th>
                                         <th>Created At</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th style="width: 100px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,10 +35,21 @@
                                             <td>{{ $order->created_at->format('d-m-Y H:i:s') }}</td>
                                             <td><span class="badge badge-secondary">{{ $order->status }}</span></td>
                                             <td>
-                                                <form action="#" method="POST" class="d-inline-block">
+                                                <form action="{{ route('admin.order.update', $order) }}" method="POST"
+                                                    class="d-inline-block">
                                                     @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                    @if ($order->status == 'Waiting')
+                                                        <button type="submit" name="type" value="1"
+                                                            class="btn btn-sm btn-success">Confirm</button>
+                                                    @endif
+                                                    @if ($order->status == 'Confirm')
+                                                        <button type="submit" name="type" value="2"
+                                                            class="btn btn-sm btn-success">Done</button>
+                                                    @endif
+                                                    @if ($order->status == 'Waiting' or $order->status == 'Cancel')
+                                                        <button type="submit" name="type" value="0"
+                                                            class="btn btn-sm btn-danger">Delete</button>
+                                                    @endif
                                                 </form>
                                             </td>
                                         </tr>
