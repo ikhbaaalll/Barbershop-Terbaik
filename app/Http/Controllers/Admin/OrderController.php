@@ -55,6 +55,9 @@ class OrderController extends Controller
                 $order->update(['status' => Order::STATUS_DONE]);
                 break;
             case "0":
+                $order->update(['status' => Order::STATUS_REJECTED]);
+                break;
+            case "3":
                 $order->delete();
                 break;
             default:
