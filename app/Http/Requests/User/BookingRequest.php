@@ -16,8 +16,8 @@ class BookingRequest extends FormRequest
     public function rules()
     {
         return [
-            'order_date' => ['required', 'date'],
-            'order_time' => ['required', 'date_format:H:i'],
+            'order_date' => ['required', 'date', 'after_or_equal:today'],
+            'order_time' => ['required', 'date_format:H:i', 'after_or_equal:now'],
             'capster_id' => ['required', new CheckScheduleCapster($this->barber), new CheckCapster($this->barber)]
         ];
     }
