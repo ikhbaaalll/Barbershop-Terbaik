@@ -39,6 +39,11 @@
                                 class="form-control no-padding @error('order_date') is-invalid @enderror"
                                 value="{{ date('Y-m-d') }}" min="{{ date('Y-m-d') }}" max="2022-04-20">
                         </div>
+                        @error('order_date')
+                            <div class="booking-error-message">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <h2 class="smemew">Choose time</h2>
                         <div class="input-group col-63">
                             @php
@@ -56,6 +61,11 @@
 
                             </select>
                         </div>
+                        @error('order_time')
+                            <div class="booking-error-message">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="input-group-col col-7 vertical-margin-20">
