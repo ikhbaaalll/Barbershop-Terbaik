@@ -22,8 +22,7 @@
         <div class="detail-area-content">
             <div class="detail-card-area">
                 <div class="card detail-card">
-                    <div class="detail-card-image"
-                        style="background-image: url('http://localhost:8000/images/PageBG/LPBG4.jpg')"></div>
+                    <div class="detail-card-image" style="background-image: url('{{ $barber->photo }}')"></div>
                     <div class="booking-btn-area">
 
                         <a href="{{ route('user.booking', $barber) }}" class="booking-link">
@@ -72,28 +71,28 @@
                     <div class="capster-row">
                         @if ($barber->capsters_count > 1)
                             @for ($j = 0; $j < 2; $j++)
-                                @break($j + $i == $barber->capsters_count)
-                                <div class="capster-col">
-                                    <img class="capster-photo" src="{{ $barber->capsters[$i + $j]->photo }}" alt="">
-                                    <div class="capster-info">
-                                        <h3>{{ $barber->capsters[$i + $j]->name }}</h3>
-                                        <h5>{{ $barber->capsters[$i + $j]->age }} tahun</h5>
-                                    </div>
-                                </div>
-                            @endfor
-                        @else
+                            @break($j + $i == $barber->capsters_count)
                             <div class="capster-col">
-                                <img class="capster-photo" src="{{ $barber->capsters[$i]->photo }}" alt="">
+                                <img class="capster-photo" src="{{ $barber->capsters[$i + $j]->photo }}" alt="">
                                 <div class="capster-info">
-                                    <h3>{{ $barber->capsters[$i]->name }}</h3>
-                                    <h5>{{ $barber->capsters[$i]->age }} tahun</h5>
+                                    <h3>{{ $barber->capsters[$i + $j]->name }}</h3>
+                                    <h5>{{ $barber->capsters[$i + $j]->age }} tahun</h5>
                                 </div>
                             </div>
-                        @endif
-                    </div>
-                @endfor
+                        @endfor
+                    @else
+                        <div class="capster-col">
+                            <img class="capster-photo" src="{{ $barber->capsters[$i]->photo }}" alt="">
+                            <div class="capster-info">
+                                <h3>{{ $barber->capsters[$i]->name }}</h3>
+                                <h5>{{ $barber->capsters[$i]->age }} tahun</h5>
+                            </div>
+                        </div>
+                @endif
             </div>
+            @endfor
         </div>
+    </div>
     </div>
 
 @endsection

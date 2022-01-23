@@ -24,7 +24,6 @@
     src: url(../fonts/Azeret_Mono/AzeretMono-Light.ttf);
 }
 
-
 * {
     margin: 0px;
     padding: 0px;
@@ -136,8 +135,7 @@ h6 {
     text-align: center;
     width: 25%;
 }
-.align-left
-{
+.align-left {
     text-align: left;
 }
 .header-menu span,
@@ -382,7 +380,7 @@ h6 {
     box-shadow: 0px 0px 1.5px 1.5px rgba(8, 8, 8, 0.75);
 }
 .slider-item-left2 .shop-card .shop-image {
-    filter: grayscale(100%);
+    filter: grayscale(10%);
     box-shadow: 0px 0px 145px 86px rgba(0, 0, 0, 0.999) inset;
 }
 /* LEFT SLIDER 1 */
@@ -393,7 +391,7 @@ h6 {
     box-shadow: 0px 0px 5px 3px rgba(8, 8, 8, 0.75);
 }
 .slider-item-left1 .shop-card .shop-image {
-    filter: grayscale(100%);
+    filter: grayscale(5%);
     box-shadow: 0px 0px 145px 86px rgba(0, 0, 0, 0.65) inset;
 }
 /* ACTIVE SLIDER */
@@ -402,8 +400,8 @@ h6 {
     box-shadow: 0px 0px 5px 5px rgba(8, 8, 8, 0.75);
 }
 .active-slider .shop-card .shop-image {
-    filter: grayscale(5%);
-    box-shadow: 0px 0px 145px 200px rgba(155, 136, 14, 0.9) inset;
+    /* filter: grayscale(5%); */
+    box-shadow: 0px 0px 145px 200px rgba(87, 86, 81, 0.8) inset;
 }
 .active-slider:hover .shop-desc {
     transform: translateY(-60px);
@@ -419,7 +417,7 @@ h6 {
     box-shadow: 0px 0px 5px 3px rgba(8, 8, 8, 0.75);
 }
 .slider-item-right1 .shop-card .shop-image {
-    filter: grayscale(100%);
+    filter: grayscale(5%);
     box-shadow: 0px 0px 145px 86px rgba(0, 0, 0, 0.65) inset;
 }
 /* RIGHT SLIDER 2 */
@@ -430,7 +428,7 @@ h6 {
     box-shadow: 0px 0px 1.5px 1.5px rgba(8, 8, 8, 0.75);
 }
 .slider-item-right2 .shop-card .shop-image {
-    filter: grayscale(100%);
+    filter: grayscale(10%);
     box-shadow: 0px 0px 145px 86px rgba(0, 0, 0, 0.999) inset;
 }
 /* HIDDEN SLIDER */
@@ -520,7 +518,7 @@ h6 {
     background-repeat: no-repeat;
     background-position: center;
     filter: grayscale(5%);
-    box-shadow: 0px 0px 145px 200px rgba(155, 136, 14, 0.8) inset;
+    box-shadow: 0px 0px 145px 200px rgba(85, 85, 84, 0.5) inset;
 }
 .booking-btn-area {
     position: absolute;
@@ -616,9 +614,8 @@ h6 {
     word-spacing: 5px;
 }
 .input-group select,
-.input-group option
-{
-    font-family: 'mono';
+.input-group option {
+    font-family: "mono";
 }
 .capster-row {
     width: 100%;
@@ -990,8 +987,7 @@ table.meja thead th {
 .cancel-to-cancel:hover {
     background-color: #a09e9e;
 }
-.modal-footer form
-{
+.modal-footer form {
     width: 20%;
 }
 .sure-to-cancel {
@@ -1193,8 +1189,7 @@ table.meja thead th {
     color: #ff3e3e;
     padding: 1px 3px;
 }
-.booking-error-message
-{
+.booking-error-message {
     font-weight: 400;
     font-size: 18px;
     color: #ff3e3e;

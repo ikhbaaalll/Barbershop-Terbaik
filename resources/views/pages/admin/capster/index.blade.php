@@ -12,7 +12,6 @@
                             <h4>List Capster</h4>
                         </div>
                         <div class="card-body p-2">
-                            <a href="{{ route('admin.capsters.create') }}" class="btn btn-primary mb-2">Add Capster</a>
                             <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>

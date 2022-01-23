@@ -22,11 +22,10 @@
         <div class="detail-area-content">
             <div class="detail-card-area">
                 <div class="card detail-card">
-                    <div class="detail-card-image"
-                        style="background-image: url('http://localhost:8000/images/PageBG/LPBG4.jpg')"></div>
+                    <div class="detail-card-image" style="background-image: url('{{ $barber->photo }}')"></div>
                 </div>
-                
-            {{-- 'open' => date('H:i:s', rand(28800,36000)), // 08:00:00 - 10:00:00
+
+                {{-- 'open' => date('H:i:s', rand(28800,36000)), // 08:00:00 - 10:00:00
             'close' => date('H:i:s', rand(77400,79200)), // 21:30:00 - 22:00:00 --}}
             </div>
             <div class="detail-info-area">
