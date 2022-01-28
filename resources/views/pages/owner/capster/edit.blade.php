@@ -8,7 +8,7 @@
 
                     <div class="card">
                         <div class="card-header p-2">
-                            <h4>Add Capster</h4>
+                            <h4>Edit Capster {{ $capster->name }}</h4>
                         </div>
                         <div class="card-body p-2">
                             <div class="row justify-content-center">
@@ -22,18 +22,23 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <form method="POST" action="{{ route('admin.capsters.store') }}"
+                                    <form method="POST" action="{{ route('owner.capsters.update', $capster) }}"
                                         enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
+                                        <div class="row justify-content-center">
+                                            <img src="{{ $capster->photo }}" alt="" width="100px" height="100px"
+                                                class="mx-auto rounded-circle">
+                                        </div>
                                         <div class="form-group">
                                             <label class="form-label">Name</label>
-                                            <input type="text" name="name" value="{{ old('name') }}"
+                                            <input type="text" name="name" value="{{ $capster->name }}"
                                                 class="form-control @error('name') is-invalid @enderror" required autofocus
                                                 placeholder="Capster name">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">Age</label>
-                                            <input type="number" name="age" value="{{ old('age') }}"
+                                            <input type="number" name="age" value="{{ $capster->age }}"
                                                 class="form-control @error('age') is-invalid @enderror" required
                                                 placeholder="Capster age">
                                         </div>

@@ -8,7 +8,7 @@
 
                     <div class="card">
                         <div class="card-header p-2">
-                            <h4>Add Service</h4>
+                            <h4>Add Facility</h4>
                         </div>
                         <div class="card-body p-2">
                             <div class="row justify-content-center">
@@ -22,13 +22,13 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <form method="POST" action="{{ route('admin.services.store') }}">
+                                    <form method="POST" action="{{ route('owner.facilities.store') }}">
                                         @csrf
                                         <div class="form-group">
                                             <label class="form-label">Name</label>
                                             <input type="text" name="name" value="{{ old('name') }}"
                                                 class="form-control @error('name') is-invalid @enderror" required autofocus
-                                                placeholder="Service name">
+                                                placeholder="Facility name">
                                         </div>
                                         <button type="submit" class="btn btn-primary float-right">Submit</button>
                                     </form>

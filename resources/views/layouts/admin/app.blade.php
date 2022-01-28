@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{{ asset('images/icons/TempDonjack.png') }}" sizes="32x32">
-    <title>{{ auth()->user()->name }}</title>
+    <title>Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -38,7 +38,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-                        {{ Auth::user()->name }}
+                        Admin
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" style="left: inherit; right: 0px;">
                         {{-- <a href="{{ route('owner.profile.show') }}" class="dropdown-item">
@@ -62,7 +62,7 @@
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            @include('layouts.navigation')
+            @include('layouts.admin.navigation')
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -78,7 +78,7 @@
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
             <div class="p-3">
-                <h5>Admin</h5>
+                <h5>{{ auth()->user()->name }}</h5>
                 <p></p>
             </div>
         </aside>

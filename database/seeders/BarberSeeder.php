@@ -41,7 +41,7 @@ class BarberSeeder extends Seeder
                 'treatment' => [
                     'Potong rambut sampai pewarnaan'
                 ],
-                'photo' => asset('images/barbers/1.png'),
+                'photo' => 'images/barbers/1.png',
                 'address' => 'Jl. Gajah Mada No.89 E, Tj. Agung Raya, Kec. Tj. Karang Tim., Kota Bandar Lampung, Lampung 35125'
             ],
             'Afzl Barbershop' => [
@@ -55,7 +55,7 @@ class BarberSeeder extends Seeder
                 'treatment' => [
                     'Potong rambut sampai pewarnaan'
                 ],
-                'photo' => asset('images/barbers/2.png'),
+                'photo' => 'images/barbers/2.png',
                 'address' => 'Jl. Putri Balau No.4 A, Tj. Agung Raya, Kedamaian, Kota Bandar Lampung, Lampung 35128'
             ],
             'Barbershop Wijaya' => [
@@ -69,7 +69,7 @@ class BarberSeeder extends Seeder
                 'treatment' => [
                     'Potong rambut sampai pewarnaan'
                 ],
-                'photo' => asset('images/barbers/3.png'),
+                'photo' => 'images/barbers/3.png',
                 'address' => 'Jl. Letjend Alamsyah Ratu Prawira Negara No.28, Metro, Kec. Metro Pusat, Kota Metro, Lampung 34121'
             ],
             'Moxie Barbershop' => [
@@ -83,7 +83,7 @@ class BarberSeeder extends Seeder
                 'treatment' => [
                     'Potong rambut sampai pewarnaan'
                 ],
-                'photo' => asset('images/barbers/4.png'),
+                'photo' => 'images/barbers/4.png',
                 'address' => 'Jalan Dokter Susilo No.97, Pahoman, Kec. Tlk. Betung Utara, Kota Bandar Lampung, Lampung 35212'
             ],
             'Sultan Barbershop' => [
@@ -96,7 +96,7 @@ class BarberSeeder extends Seeder
                 'treatment' => [
                     'Potong rambut sampai pewarnaan'
                 ],
-                'photo' => asset('images/barbers/5.jpg'),
+                'photo' => 'images/barbers/5.jpg',
                 'address' => 'Jl. Hos chokrominoto,dpn masjid Rabiatul Aziz'
             ],
             'The Great Victor Rojas' => [
@@ -108,7 +108,7 @@ class BarberSeeder extends Seeder
                 'treatment' => [
                     'Potong rambut sampai pewarnaan'
                 ],
-                'photo' => asset('images/barbers/6.png'),
+                'photo' => 'images/barbers/6.png',
                 'address' => 'Jl. ZA. Pagar Alam, Gedong Meneng, Kec. Rajabasa, Kota Bandar Lampung, Lampung 35148'
             ],
             'Three Brothers Barbershop bdl' => [
@@ -123,7 +123,7 @@ class BarberSeeder extends Seeder
                 'treatment' => [
                     'Potong rambut sampai pewarnaan'
                 ],
-                'photo' => asset('images/barbers/7.png'),
+                'photo' => 'images/barbers/7.png',
                 'address' => 'Enggal, Kec. Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35213'
             ],
             'Nobleman Barbershop' => [
@@ -143,7 +143,7 @@ class BarberSeeder extends Seeder
                     'Massage',
                     'Hot Towel'
                 ],
-                'photo' => asset('images/barbers/8.jpg'),
+                'photo' => 'images/barbers/8.jpg',
                 'address' => 'Gatot Subroto no 7,Pahoman'
             ],
             'Classic Barbershop' => [
@@ -152,7 +152,7 @@ class BarberSeeder extends Seeder
                     'Wi-Fi',
                     'Pomade',
                 ],
-                'price' => 60_000,
+                'price' => 35_000,
                 'treatment' => [
                     'Cuci Rambut',
                     'Pomade',
@@ -160,7 +160,7 @@ class BarberSeeder extends Seeder
                     'Massage',
                     'Hot Towel'
                 ],
-                'photo' => asset('images/barbers/9.jpg'),
+                'photo' => 'images/barbers/9.jpg',
                 'address' => 'Jl. Flamboyan no 37,Tanjung Karang'
             ],
             'The Dandies' => [
@@ -177,7 +177,7 @@ class BarberSeeder extends Seeder
                     'Massage',
                     'Hot Towel'
                 ],
-                'photo' => asset('images/barbers/10.jpg'),
+                'photo' => 'images/barbers/10.jpg',
                 'address' => 'Cut nyakdin no 39,Palapa'
             ],
         ];
@@ -212,7 +212,7 @@ class BarberSeeder extends Seeder
                 $barber->services()->create(['name' => $val]);
             }
 
-            Capster::factory()->for($barber)->count(rand(3, 5))->create();
+            Capster::factory()->for($barber)->count(rand(4, 5))->create();
         }
     }
 }

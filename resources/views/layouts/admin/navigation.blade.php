@@ -11,15 +11,24 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="{{ route('owner.order.index') }}" class="nav-link">
+                <a href="{{ route('admin.barbers.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-table"></i>
                     <p>
-                        {{ __('Order') }}
+                        {{ __('Barber') }}
                     </p>
                 </a>
             </li>
 
             <li class="nav-item">
+                <a href="{{ route('admin.barbers.create') }}" class="nav-link">
+                    <i class="nav-icon fas fa-plus5"></i>
+                    <p>
+                        {{ __('Add Barber') }}
+                    </p>
+                </a>
+            </li>
+
+            {{-- <li class="nav-item">
                 <a href="{{ route('owner.capsters.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-user-plus"></i>
                     <p>
@@ -39,21 +48,12 @@
 
             <li class="nav-item">
                 <a href="{{ route('owner.services.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-cookie"></i>
+                    <i class="nav-icon fas fa-cogs"></i>
                     <p>
                         {{ __('Service') }}
                     </p>
                 </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ route('owner.barber.edit') }}" class="nav-link">
-                    <i class="nav-icon fas fa-cogs"></i>
-                    <p>
-                        {{ __('Barber') }}
-                    </p>
-                </a>
-            </li>
+            </li> --}}
 
             {{-- <li class="nav-item">
                 <a href="#" class="nav-link">

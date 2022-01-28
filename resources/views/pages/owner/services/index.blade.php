@@ -9,42 +9,38 @@
 
                     <div class="card">
                         <div class="card-header p-2">
-                            <h4>List Capster</h4>
+                            <h4>List Service</h4>
                         </div>
                         <div class="card-body p-2">
+                            <a href="{{ route('owner.services.create') }}" class="btn btn-primary mb-2">Add Service</a>
                             <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">No</th>
-                                        <th style="width: 30px">Photo</th>
                                         <th>Name</th>
-                                        <th>Age</th>
                                         <th style="width: 100px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($barber->capsters as $capster)
+                                    @forelse ($barber->services as $service)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><img src="{{ $capster->photo }}" width="25px" height="25px"
-                                                    class="rounded-circle" alt=""></td>
-                                            <td>{{ $capster->name }}</td>
-                                            <td>{{ $capster->age }}</td>
+                                            <td>{{ $service->name }}</td>
                                             <td>
-                                                <a href="{{ route('admin.capsters.edit', $capster) }}"
+                                                <a href="{{ route('owner.services.edit', $service) }}"
                                                     class="btn btn-sm btn-warning">Edit</a>
-                                                <form action="{{ route('admin.capsters.destroy', $capster) }}"
+                                                <form action="{{ route('owner.services.destroy', $service) }}"
                                                     method="POST" class="d-inline-block">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm btn-danger"
-                                                        onclick="return confirm('Delete {{ $capster->name }}?')">Delete</button>
+                                                        onclick="return confirm('Delete {{ $service->name }}?')">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4">Tidak ada data laporan</td>
+                                            <td colspan="3">Tidak ada data</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

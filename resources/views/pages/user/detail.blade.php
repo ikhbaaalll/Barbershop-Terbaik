@@ -22,7 +22,7 @@
         <div class="detail-area-content">
             <div class="detail-card-area">
                 <div class="card detail-card">
-                    <div class="detail-card-image" style="background-image: url('{{ $barber->photo }}')"></div>
+                    <div class="detail-card-image" style="background-image: url('{{ asset($barber->photo) }}')"></div>
                 </div>
 
                 {{-- 'open' => date('H:i:s', rand(28800,36000)), // 08:00:00 - 10:00:00

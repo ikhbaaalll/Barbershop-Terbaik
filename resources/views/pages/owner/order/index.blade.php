@@ -43,7 +43,7 @@
                                             </td>
                                             <td>{{ $order->review_text }}</td>
                                             <td>
-                                                <form action="{{ route('admin.order.update', $order) }}" method="POST"
+                                                <form action="{{ route('owner.order.update', $order) }}" method="POST"
                                                     class="d-inline-block">
                                                     @csrf
                                                     @if ($order->status == 'Waiting')

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barber;
@@ -15,12 +15,12 @@ class FacilityController extends Controller
             ->whereBelongsTo(auth()->user())
             ->first();
 
-        return view('pages.admin.facilities.index', compact('barber'));
+        return view('pages.owner.facilities.index', compact('barber'));
     }
 
     public function create()
     {
-        return view('pages.admin.facilities.create');
+        return view('pages.owner.facilities.create');
     }
 
     public function store()
@@ -35,12 +35,12 @@ class FacilityController extends Controller
 
         $barber->facilities()->create($validator->validated());
 
-        return redirect()->route('admin.facilities.index')->with('status', 'Sukses menambah fasilitias');
+        return redirect()->route('owner.facilities.index')->with('status', 'Sukses menambah fasilitias');
     }
 
     public function edit(Facility $facility)
     {
-        return view('pages.admin.facilities.edit', compact('facility'));
+        return view('pages.owner.facilities.edit', compact('facility'));
     }
 
     public function update(Facility $facility)
@@ -51,13 +51,13 @@ class FacilityController extends Controller
 
         $facility->update($validator->validated());
 
-        return redirect()->route('admin.facilities.index')->with('status', "Sukses mengubah fasilitias {$facility->name}");
+        return redirect()->route('owner.facilities.index')->with('status', "Sukses mengubah fasilitias {$facility->name}");
     }
 
     public function destroy(Facility $facility)
     {
         $facility->delete();
 
-        return redirect()->route('admin.facilities.index')->with('status', "Sukses menghapus fasilitias {$facility->name}");
+        return redirect()->route('owner.facilities.index')->with('status', "Sukses menghapus fasilitias {$facility->name}");
     }
 }

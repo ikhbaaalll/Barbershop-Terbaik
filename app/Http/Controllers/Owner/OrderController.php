@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barber;
@@ -42,7 +42,7 @@ class OrderController extends Controller
             return $order;
         });
 
-        return view('pages.admin.order.index', compact('barber'));
+        return view('pages.owner.order.index', compact('barber'));
     }
 
     public function update(Order $order)
@@ -64,6 +64,6 @@ class OrderController extends Controller
                 null;
         }
 
-        return redirect()->route('admin.order.index')->with('status', 'Sukses mengubah status');
+        return redirect()->route('owner.order.index')->with('status', 'Sukses mengubah status');
     }
 }

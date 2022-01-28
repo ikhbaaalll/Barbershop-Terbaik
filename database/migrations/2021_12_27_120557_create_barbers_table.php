@@ -17,7 +17,7 @@ class CreateBarbersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->text('address');
             $table->time('open');
             $table->time('close');

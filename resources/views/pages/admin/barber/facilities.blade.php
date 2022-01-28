@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 
 @section('content')
     <!-- Main content -->
@@ -9,38 +9,25 @@
 
                     <div class="card">
                         <div class="card-header p-2">
-                            <h4>List Service</h4>
+                            <h4>List Facility {{ $barber->name }}</h4>
                         </div>
                         <div class="card-body p-2">
-                            {{-- <a href="{{ route('admin.services.create') }}" class="btn btn-primary mb-2">Add Service</a> --}}
                             <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">No</th>
                                         <th>Name</th>
-                                        <th style="width: 100px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($barber->services as $service)
+                                    @forelse ($barber->facilities as $facility)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $service->name }}</td>
-                                            <td>
-                                                <a href="{{ route('admin.services.edit', $service) }}"
-                                                    class="btn btn-sm btn-warning">Edit</a>
-                                                <form action="{{ route('admin.services.destroy', $service) }}"
-                                                    method="POST" class="d-inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger"
-                                                        onclick="return confirm('Delete {{ $service->name }}?')">Delete</button>
-                                                </form>
-                                            </td>
+                                            <td>{{ $facility->name }}</td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3">Tidak ada data</td>
+                                            <td colspan="2">Tidak ada data</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

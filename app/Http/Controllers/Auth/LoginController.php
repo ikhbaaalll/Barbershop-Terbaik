@@ -25,8 +25,10 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        if (auth()->user()->role == User::ROLE_OWNER) {
-            return 'admin/orders';
+        if (auth()->user()->role == User::ROLE_ADMIN) {
+            return 'admin/barbers';
+        } else if (auth()->user()->role == User::ROLE_OWNER) {
+            return 'owner/orders';
         } else {
             return '/home';
         }

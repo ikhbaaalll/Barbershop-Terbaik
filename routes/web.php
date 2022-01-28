@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\CapsterController;
-use App\Http\Controllers\Admin\FacilityController;
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\BarberController;
+use App\Http\Controllers\Owner\CapsterController;
+use App\Http\Controllers\Owner\FacilityController;
+use App\Http\Controllers\Owner\OrderController;
+use App\Http\Controllers\Owner\ServiceController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Owner\BarberController as OwnerBarberController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,11 +29,21 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => 'admin'], function () {
-    Route::resource('capsters', CapsterController::class)->except(['show', 'create', 'store']);
+    Route::get('barbers/{barber}/order', [BarberController::class, 'order'])->name('barbers.order');
+    Route::get('barbers/{barber}/facilites', [BarberController::class, 'facilities'])->name('barbers.facilities');
+    Route::get('barbers/{barber}/services', [BarberController::class, 'services'])->name('barbers.services');
+    Route::get('barbers/{barber}/capsters', [BarberController::class, 'capsters'])->name('barbers.capsters');
+    Route::resource('barbers', BarberController::class)->except('show');
+});
+
+Route::group(['middleware' => ['auth', 'owner'], 'as' => 'owner.', 'prefix' => 'owner'], function () {
+    Route::resource('capsters', CapsterController::class)->except(['show']);
     Route::get('orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('orders/{order}', [OrderController::class, 'update'])->name('order.update');
-    Route::resource('facilities', FacilityController::class)->except(['show', 'create', 'store']);
-    Route::resource('services', ServiceController::class)->except(['show', 'create', 'store']);
+    Route::resource('facilities', FacilityController::class)->except(['show']);
+    Route::resource('services', ServiceController::class)->except(['show']);
+    Route::get('barber', [OwnerBarberController::class, 'edit'])->name('barber.edit');
+    Route::put('barber/{barber}', [OwnerBarberController::class, 'update'])->name('barber.update');
 });
 
 Route::group(['middleware' => ['auth', 'user'], 'as' => 'user.'], function () {

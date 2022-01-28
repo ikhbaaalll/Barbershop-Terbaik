@@ -13,6 +13,7 @@ class UserController extends Controller
     {
         $barbers = Barber::query()
             ->withAvg('orders', 'review_star')
+            ->orderBy('orders_avg_review_star', 'desc')
             ->get();
 
         $barbers->transform(function ($barber) {
@@ -45,6 +46,10 @@ class UserController extends Controller
             ->with('capsters')
             ->withCount('capsters')
             ->find($barber->id);
+
+        $barber->orders_avg_review_star = number_format($barber->orders_avg_review_star, 1);
+        $barber->avg_review_star = intval($barber->orders_avg_review_star);
+        $barber->avg_review_star_comma = intval(($barber->orders_avg_review_star - $barber->avg_review_star) * 10);
 
         return view('pages.user.capster', compact('barber'));
     }

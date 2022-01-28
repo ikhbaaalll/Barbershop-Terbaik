@@ -8,7 +8,7 @@
 
                     <div class="card">
                         <div class="card-header p-2">
-                            <h4>Edit Capster {{ $capster->name }}</h4>
+                            <h4>Edit Barber</h4>
                         </div>
                         <div class="card-body p-2">
                             <div class="row justify-content-center">
@@ -22,30 +22,26 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    <form method="POST" action="{{ route('admin.capsters.update', $capster) }}"
-                                        enctype="multipart/form-data">
+                                    <form method="POST" action="{{ route('owner.barber.update', $barber) }}">
                                         @csrf
                                         @method('PUT')
-                                        <div class="row justify-content-center">
-                                            <img src="{{ $capster->photo }}" alt="" width="100px" height="100px"
-                                                class="mx-auto rounded-circle">
+                                        <div class="form-group">
+                                            <label class="form-label">Price</label>
+                                            <input type="number" name="price" value="{{ $barber->price }}"
+                                                class="form-control @error('price') is-invalid @enderror" required autofocus
+                                                placeholder="Barber price">
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" name="name" value="{{ $capster->name }}"
-                                                class="form-control @error('name') is-invalid @enderror" required autofocus
-                                                placeholder="Capster name">
+                                            <label class="form-label">Open</label>
+                                            <input type="time" name="open" value="{{ $barber->open->format('H:i') }}"
+                                                class="form-control @error('open') is-invalid @enderror" required
+                                                placeholder="Barber open">
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label">Age</label>
-                                            <input type="number" name="age" value="{{ $capster->age }}"
-                                                class="form-control @error('age') is-invalid @enderror" required
-                                                placeholder="Capster age">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="photo">Photo</label>
-                                            <input type="file" class="form-control @error('photo') is-invalid @enderror"
-                                                id="photo" name="photo" accept=".png,.jpg,.jpeg">
+                                            <label class="form-label">Close</label>
+                                            <input type="time" name="close" value="{{ $barber->close->format('H:i') }}"
+                                                class="form-control @error('close') is-invalid @enderror" required
+                                                placeholder="Barber close">
                                         </div>
                                         <button type="submit" class="btn btn-primary float-right">Submit</button>
                                     </form>

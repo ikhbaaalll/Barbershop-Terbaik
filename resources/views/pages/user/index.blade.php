@@ -26,9 +26,7 @@
                         onclick="CardSelected({{ $loop->index }})">
                         <div class="card shop-card">
 
-                            <div class="shop-image" style="background-image: url('{{ $barber->photo }}')"></div>
-
-                            {{-- <div class="shop-image" style="background-image: url({{ $barber->photo }})"></div> --}}
+                            <div class="shop-image" style="background-image: url('{{ asset($barber->photo) }}')"></div>
 
                             <div class="shop-desc">
                                 <h3 class="shop-name">{{ $barber->name }}</h3>

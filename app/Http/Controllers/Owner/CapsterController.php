@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CapsterRequest;
+use App\Http\Requests\Owner\CapsterRequest;
 use App\Models\Barber;
 use App\Models\Capster;
-use Illuminate\Support\Facades\File;
 
 class CapsterController extends Controller
 {
@@ -20,12 +19,12 @@ class CapsterController extends Controller
             ->whereBelongsTo($barber)
             ->get();
 
-        return view('pages.admin.capster.index', compact('capsters', 'barber'));
+        return view('pages.owner.capster.index', compact('capsters', 'barber'));
     }
 
     public function create()
     {
-        return view('pages.admin.capster.create');
+        return view('pages.owner.capster.create');
     }
 
     public function store(CapsterRequest $capsterRequest)
@@ -38,12 +37,12 @@ class CapsterController extends Controller
             'photo' => url($capsterRequest->file('photo')->move('capster/' . $barber->id, now()->timestamp . '.' . $capsterRequest->file('photo')->getClientOriginalExtension()))
         ]));
 
-        return redirect()->route('admin.capsters.index')->with('status', 'Sukses menambah capster');
+        return redirect()->route('owner.capsters.index')->with('status', 'Sukses menambah capster');
     }
 
     public function edit(Capster $capster)
     {
-        return view('pages.admin.capster.edit', compact('capster'));
+        return view('pages.owner.capster.edit', compact('capster'));
     }
 
     public function update(CapsterRequest $capsterRequest, Capster $capster)
@@ -59,13 +58,13 @@ class CapsterController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.capsters.index')->with('status', "Sukses mengubah capster {$capster->name}");
+        return redirect()->route('owner.capsters.index')->with('status', "Sukses mengubah capster {$capster->name}");
     }
 
     public function destroy(Capster $capster)
     {
         $capster->delete();
 
-        return redirect()->route('admin.capsters.index')->with('status', "Sukses menghapus capster {$capster->name}");
+        return redirect()->route('owner.capsters.index')->with('status', "Sukses menghapus capster {$capster->name}");
     }
 }

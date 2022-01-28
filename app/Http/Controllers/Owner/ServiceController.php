@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barber;
@@ -15,12 +15,12 @@ class ServiceController extends Controller
             ->whereBelongsTo(auth()->user())
             ->first();
 
-        return view('pages.admin.services.index', compact('barber'));
+        return view('pages.owner.services.index', compact('barber'));
     }
 
     public function create()
     {
-        return view('pages.admin.services.create');
+        return view('pages.owner.services.create');
     }
 
     public function store()
@@ -35,12 +35,12 @@ class ServiceController extends Controller
 
         $barber->services()->create($validator->validated());
 
-        return redirect()->route('admin.services.index')->with('status', 'Sukses menambah fasilitias');
+        return redirect()->route('owner.services.index')->with('status', 'Sukses menambah fasilitias');
     }
 
     public function edit(Service $service)
     {
-        return view('pages.admin.services.edit', compact('service'));
+        return view('pages.owner.services.edit', compact('service'));
     }
 
     public function update(Service $service)
@@ -51,13 +51,13 @@ class ServiceController extends Controller
 
         $service->update($validator->validated());
 
-        return redirect()->route('admin.services.index')->with('status', "Sukses mengubah fasilitias {$service->name}");
+        return redirect()->route('owner.services.index')->with('status', "Sukses mengubah fasilitias {$service->name}");
     }
 
     public function destroy(Service $service)
     {
         $service->delete();
 
-        return redirect()->route('admin.services.index')->with('status', "Sukses menghapus fasilitias {$service->name}");
+        return redirect()->route('owner.services.index')->with('status', "Sukses menghapus fasilitias {$service->name}");
     }
 }

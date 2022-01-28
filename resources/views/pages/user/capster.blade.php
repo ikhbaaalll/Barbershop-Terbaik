@@ -22,7 +22,7 @@
         <div class="detail-area-content">
             <div class="detail-card-area">
                 <div class="card detail-card">
-                    <div class="detail-card-image" style="background-image: url('{{ $barber->photo }}')"></div>
+                    <div class="detail-card-image" style="background-image: url('{{ asset($barber->photo) }}')"></div>
                     <div class="booking-btn-area">
 
                         <a href="{{ route('user.booking', $barber) }}" class="booking-link">
@@ -40,21 +40,15 @@
                 <div class="detail-info-header">
                     Capster {{ $barber->name }}
                     <div class="info-rating">
-
-                        @php
-                            $rating = 3.3;
-                            $intRating = intval($rating);
-                            $after_comma_rating = ($rating - $intRating) * 10;
-                        @endphp
-
-                        @for ($i = 1; $i <= 5; $i++)
-                            @if ($i <= $intRating)
+                        @for ($j = 1; $j <= 5; $j++)
+                            @if ($j <= $barber->avg_review_star)
                                 <div class="star-rating full-star"></div>
                             @else
-                                @if ($after_comma_rating > 0)
-                                    <div class="star-rating point-{{ $after_comma_rating }}-star"></div>
+                                @if ($barber->avg_review_star_comma > 0)
+                                    <div class="star-rating point-{{ $barber->avg_review_star_comma }}-star">
+                                    </div>
                                     @php
-                                        $after_comma_rating = 0;
+                                        $barber->avg_review_star_comma = 0;
                                     @endphp
                                 @else
                                     <div class="star-rating empty-star"></div>
@@ -62,7 +56,7 @@
                             @endif
                         @endfor
 
-                        <h4>({{ $rating }})</h4>
+                        <h4>({{ $barber->orders_avg_review_star }})</h4>
 
                     </div>
                 </div>
